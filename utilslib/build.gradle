@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.debugUrl)
+            buildConfigField("String", "API_ONLINE_URL", rootProject.ext.apiUrl.releaseUrl)
+            buildConfigField "String", "BUGGLY_APPID", rootProject.ext.appKey.buglyAppId
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.releaseUrl)
+            buildConfigField("String", "API_ONLINE_URL", rootProject.ext.apiUrl.releaseUrl)
+            buildConfigField "String", "BUGGLY_APPID", rootProject.ext.appKey.buglyAppId
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':dependencieslib')
+}
+kotlin {             //开始协程实验性功能
+    experimental {
+        coroutines 'enable'
+    }
+}

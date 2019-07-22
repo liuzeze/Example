@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/common_app_white_ffffff"
+        tools:context="com.future.electronicmusic.ui.main.SpalshActivity">
+
+
+    <com.noober.background.view.BLTextView
+            android:id="@+id/tv_skip"
+            app:bl_corners_radius="90dp"
+            android:gravity="center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="20dp"
+            app:bl_solid_color="@color/common_app_transparency_b70"
+            android:textColor="@color/common_app_gray_333333"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+
+</android.support.constraint.ConstraintLayout>

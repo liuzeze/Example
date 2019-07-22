@@ -1,0 +1,49 @@
+ext {
+
+    apiUrl = [
+
+            releaseUrl: '"http://lf.snssdk.com/api/"',
+            debugUrl  : '"http://www.baidu.com/"',
+    ]
+    appKey = [
+            buglyAppId: '"4a8eea659f"'
+    ]
+    signing = [
+            storeFile    : file("./app/jks/newskey.jks"),
+            storePassword: "123456",
+            keyAlias     : "news",
+            keyPassword  : "123456"
+    ]
+    android = [
+            applicationId    : "com.future.electronicmusic",
+            compileSdkVersion: 28,
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+
+            debugAppName     : "应用预览版",
+            releaseAppName   : "应用正式版",
+            debugAppIcon     : "@mipmap/ic_launcher_round",
+            releaseAppIcon   : "@mipmap/ic_launcher",
+
+            versionCode      : 1,
+            versionName      : "1.0.0"
+    ]
+
+
+    libsVersion = [
+            supportLibraryVersion = "28.0.0",
+    ]
+
+
+    dependencies = [
+            //support
+            appcompat_v7: "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion",
+            design      : "com.android.support:design:$rootProject.supportLibraryVersion",
+//            recyclerview_v7: "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion",
+//            cardview_v7    : "com.android.support:cardview-v7:$rootProject.supportLibraryVersion",
+
+
+    ]
+
+
+}
