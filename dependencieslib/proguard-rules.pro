@@ -38,3 +38,6 @@
 
 #歌词
 -keep class com.zlm.hp.lyrics.** { *; }
+#状态栏
+ -keep class com.gyf.immersionbar.* {*;}
+ -dontwarn com.gyf.immersionbar.**

@@ -17,6 +17,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        preRelease {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -41,7 +45,7 @@ dependencies {
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.27.0-eap13'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.27.0-eap13'
     //mvp网络请求框架
-    api 'com.lz:fram:1.0.4'
+    api 'com.lz:fram:1.0.5'
     //UI 状态切换控件
 //    api 'com.lz:lzstatus:1.0.0'
     //banner
@@ -49,7 +53,7 @@ dependencies {
     //背景支持
     api 'com.noober.background:core:1.4.4'
     //权限请求
-    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    api 'com.yanzhenjie.permission:support:2.0.1'
     //列表适配器
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
     //状态栏管理
@@ -66,8 +70,6 @@ dependencies {
     api 'com.qianwen:update-app:3.5.2'
     //superTextview
     api 'com.github.lygttpod:SuperTextView:2.2.4'
-
-
 
 
     //视频播放器
