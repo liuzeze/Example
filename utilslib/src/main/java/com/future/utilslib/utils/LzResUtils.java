@@ -18,9 +18,9 @@ import android.view.animation.AnimationUtils;
  * @author xuexiang
  * @since 2018/12/18 上午12:14
  */
-public final class FeResUtils {
+public final class LzResUtils {
 
-    private FeResUtils() {
+    private LzResUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
@@ -30,7 +30,7 @@ public final class FeResUtils {
      * @return
      */
     public static Resources getResources() {
-        return FeInitUtil.getApp().getResources();
+        return LzInitUtil.getApp().getResources();
     }
 
     /**
@@ -51,7 +51,7 @@ public final class FeResUtils {
      */
     public static Drawable getDrawable(@DrawableRes int resId) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return FeInitUtil.getApp().getDrawable(resId);
+            return LzInitUtil.getApp().getDrawable(resId);
         }
         return getResources().getDrawable(resId);
     }
@@ -146,7 +146,7 @@ public final class FeResUtils {
      * @return
      */
     public static Animation getAnim(@AnimRes int resId) {
-        return AnimationUtils.loadAnimation(FeInitUtil.getApp(), resId);
+        return AnimationUtils.loadAnimation(LzInitUtil.getApp(), resId);
     }
 
     /**

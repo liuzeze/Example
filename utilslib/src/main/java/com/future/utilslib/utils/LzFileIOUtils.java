@@ -23,11 +23,11 @@ import java.util.List;
  * readFile2BytesByMap        : 读取文件到字节数组中
  * setBufferSize              : 设置缓冲区尺寸
  */
-public class FeFileIOUtils {
+public class LzFileIOUtils {
 
     private static int sBufferSize = 524288;
 
-    private FeFileIOUtils() {
+    private LzFileIOUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 

@@ -24,7 +24,7 @@ import com.future.utilslib.R;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2019-04-24       创建class
  */
-public class FeToast {
+public class LzToast {
 
 
     @ColorInt
@@ -54,74 +54,74 @@ public class FeToast {
     private static long mExitTime;
 
     public static void normal(@NonNull String message) {
-        normal(FeInitUtil.getApp(), message, Toast.LENGTH_SHORT, null, false).show();
+        normal(LzInitUtil.getApp(), message, Toast.LENGTH_SHORT, null, false).show();
     }
 
     public static void normal(@NonNull String message, Drawable icon) {
-        normal(FeInitUtil.getApp(), message, Toast.LENGTH_SHORT, icon, true).show();
+        normal(LzInitUtil.getApp(), message, Toast.LENGTH_SHORT, icon, true).show();
     }
 
     public static void normal(@NonNull String message, int duration) {
-        normal(FeInitUtil.getApp(), message, duration, null, false).show();
+        normal(LzInitUtil.getApp(), message, duration, null, false).show();
     }
 
     public static void normal(@NonNull String message, int duration, Drawable icon) {
-        normal(FeInitUtil.getApp(), message, duration, icon, true).show();
+        normal(LzInitUtil.getApp(), message, duration, icon, true).show();
     }
 
     public static Toast normal(@NonNull String message, int duration, Drawable icon, boolean withIcon) {
-        return custom(FeInitUtil.getApp(), message, icon, DEFAULT_TEXT_COLOR, duration, withIcon);
+        return custom(LzInitUtil.getApp(), message, icon, DEFAULT_TEXT_COLOR, duration, withIcon);
     }
 
     public static void warning(@NonNull String message) {
-        warning(FeInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
+        warning(LzInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
     }
 
     public static void warning(@NonNull String message, int duration) {
-        warning(FeInitUtil.getApp(), message, duration, true).show();
+        warning(LzInitUtil.getApp(), message, duration, true).show();
     }
 
     public static Toast warning(@NonNull String message, int duration, boolean withIcon) {
-        return custom(FeInitUtil.getApp(), message, getDrawable(FeInitUtil.getApp(), R.mipmap.ic_error_outline_white_48dp), DEFAULT_TEXT_COLOR, WARNING_COLOR, duration, withIcon, true);
+        return custom(LzInitUtil.getApp(), message, getDrawable(LzInitUtil.getApp(), R.mipmap.ic_error_outline_white_48dp), DEFAULT_TEXT_COLOR, WARNING_COLOR, duration, withIcon, true);
     }
 
     public static void info(@NonNull String message) {
-        info(FeInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
+        info(LzInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
     }
 
     public static void info(@NonNull String message, int duration) {
-        info(FeInitUtil.getApp(), message, duration, true).show();
+        info(LzInitUtil.getApp(), message, duration, true).show();
     }
 
     public static Toast info(@NonNull String message, int duration, boolean withIcon) {
-        return custom(FeInitUtil.getApp(), message, getDrawable(FeInitUtil.getApp(), R.mipmap.ic_info_outline_white_48dp), DEFAULT_TEXT_COLOR, INFO_COLOR, duration, withIcon, true);
+        return custom(LzInitUtil.getApp(), message, getDrawable(LzInitUtil.getApp(), R.mipmap.ic_info_outline_white_48dp), DEFAULT_TEXT_COLOR, INFO_COLOR, duration, withIcon, true);
     }
 
     public static void success(@NonNull String message) {
-        success(FeInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
+        success(LzInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
     }
 
     public static void success(@NonNull String message, int duration) {
-        success(FeInitUtil.getApp(), message, duration, true).show();
+        success(LzInitUtil.getApp(), message, duration, true).show();
     }
 
     public static Toast success(@NonNull String message, int duration, boolean withIcon) {
-        return custom(FeInitUtil.getApp(), message, getDrawable(FeInitUtil.getApp(), R.mipmap.ic_check_white_48dp), DEFAULT_TEXT_COLOR, SUCCESS_COLOR, duration, withIcon, true);
+        return custom(LzInitUtil.getApp(), message, getDrawable(LzInitUtil.getApp(), R.mipmap.ic_check_white_48dp), DEFAULT_TEXT_COLOR, SUCCESS_COLOR, duration, withIcon, true);
     }
 
     public static void error(@NonNull String message) {
-        error(FeInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
+        error(LzInitUtil.getApp(), message, Toast.LENGTH_SHORT, true).show();
     }
     //===========================================使用ApplicationContext 方法=========================
 
     //*******************************************常规方法********************************************
 
     public static void error(@NonNull String message, int duration) {
-        error(FeInitUtil.getApp(), message, duration, true).show();
+        error(LzInitUtil.getApp(), message, duration, true).show();
     }
 
     public static Toast error(@NonNull String message, int duration, boolean withIcon) {
-        return custom(FeInitUtil.getApp(), message, getDrawable(FeInitUtil.getApp(), R.mipmap.ic_clear_white_48dp), DEFAULT_TEXT_COLOR, ERROR_COLOR, duration, withIcon, true);
+        return custom(LzInitUtil.getApp(), message, getDrawable(LzInitUtil.getApp(), R.mipmap.ic_clear_white_48dp), DEFAULT_TEXT_COLOR, ERROR_COLOR, duration, withIcon, true);
     }
 
     @CheckResult
@@ -301,7 +301,7 @@ public class FeToast {
      * @param resId String资源ID
      */
     public static void showToast(int resId) {
-        showToast(FeInitUtil.getApp().getString(resId), Toast.LENGTH_SHORT);
+        showToast(LzInitUtil.getApp().getString(resId), Toast.LENGTH_SHORT);
     }
 
     /**
@@ -311,7 +311,7 @@ public class FeToast {
      * @param duration 显示时长
      */
     public static void showToast(int resId, int duration) {
-        showToast(FeInitUtil.getApp().getString(resId), duration);
+        showToast(LzInitUtil.getApp().getString(resId), duration);
     }
     //===========================================Toast 替代方法======================================
 
@@ -324,7 +324,7 @@ public class FeToast {
     @SuppressLint("ShowToast")
     public static void showToast(String msg, int duration) {
         if (mToast == null) {
-            mToast = Toast.makeText(FeInitUtil.getApp(), msg, duration);
+            mToast = Toast.makeText(LzInitUtil.getApp(), msg, duration);
         } else {
             mToast.setText(msg);
         }
@@ -333,7 +333,7 @@ public class FeToast {
 
     public static boolean doubleClickExit() {
         if ((System.currentTimeMillis() - mExitTime) > 2000) {
-            FeToast.normal("再按一次退出");
+            LzToast.normal("再按一次退出");
             mExitTime = System.currentTimeMillis();
             return false;
         }

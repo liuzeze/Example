@@ -15,7 +15,7 @@ import android.webkit.WebViewClient;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2019-04-24       创建class
  */
-public class FeWebViewUtils {
+public class LzWebViewUtils {
 
 
     public static void initWebView(final Context context, final WebView webBase) {

@@ -89,11 +89,11 @@ import java.util.Locale;
  * getExternalAppDocumentsPath    : 获取外存应用文档路径
  * getExternalAppObbPath          : 获取外存应用 OBB 路径
  */
-public class FeFileUtils {
+public class LzFileUtils {
 
     private static final String LINE_SEP = System.getProperty("line.separator");
 
-    private FeFileUtils() {
+    private LzFileUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
@@ -1374,9 +1374,9 @@ public class FeFileUtils {
      */
     public static String getInternalAppDataPath() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-            return FeInitUtil.getApp().getApplicationInfo().dataDir;
+            return LzInitUtil.getApp().getApplicationInfo().dataDir;
         }
-        return getAbsolutePath(FeInitUtil.getApp().getDataDir());
+        return getAbsolutePath(LzInitUtil.getApp().getDataDir());
     }
 
     /**
@@ -1386,9 +1386,9 @@ public class FeFileUtils {
      */
     public static String getInternalAppCodeCacheDir() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return FeInitUtil.getApp().getApplicationInfo().dataDir + "/code_cache";
+            return LzInitUtil.getApp().getApplicationInfo().dataDir + "/code_cache";
         }
-        return getAbsolutePath(FeInitUtil.getApp().getCodeCacheDir());
+        return getAbsolutePath(LzInitUtil.getApp().getCodeCacheDir());
     }
 
     /**
@@ -1397,7 +1397,7 @@ public class FeFileUtils {
      * @return the path of /data/data/package/cache
      */
     public static String getInternalAppCachePath() {
-        return getAbsolutePath(FeInitUtil.getApp().getCacheDir());
+        return getAbsolutePath(LzInitUtil.getApp().getCacheDir());
     }
 
     /**
@@ -1406,7 +1406,7 @@ public class FeFileUtils {
      * @return the path of /data/data/package/databases
      */
     public static String getInternalAppDbsPath() {
-        return FeInitUtil.getApp().getApplicationInfo().dataDir + "/databases";
+        return LzInitUtil.getApp().getApplicationInfo().dataDir + "/databases";
     }
 
     /**
@@ -1416,7 +1416,7 @@ public class FeFileUtils {
      * @return the path of /data/data/package/databases/name
      */
     public static String getInternalAppDbPath(String name) {
-        return getAbsolutePath(FeInitUtil.getApp().getDatabasePath(name));
+        return getAbsolutePath(LzInitUtil.getApp().getDatabasePath(name));
     }
 
     /**
@@ -1425,7 +1425,7 @@ public class FeFileUtils {
      * @return the path of /data/data/package/files
      */
     public static String getInternalAppFilesPath() {
-        return getAbsolutePath(FeInitUtil.getApp().getFilesDir());
+        return getAbsolutePath(LzInitUtil.getApp().getFilesDir());
     }
 
     /**
@@ -1434,7 +1434,7 @@ public class FeFileUtils {
      * @return the path of /data/data/package/shared_prefs
      */
     public static String getInternalAppSpPath() {
-        return FeInitUtil.getApp().getApplicationInfo().dataDir + "/shared_prefs";
+        return LzInitUtil.getApp().getApplicationInfo().dataDir + "/shared_prefs";
     }
 
     /**
@@ -1444,9 +1444,9 @@ public class FeFileUtils {
      */
     public static String getInternalAppNoBackupFilesPath() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return FeInitUtil.getApp().getApplicationInfo().dataDir + "/no_backup";
+            return LzInitUtil.getApp().getApplicationInfo().dataDir + "/no_backup";
         }
-        return getAbsolutePath(FeInitUtil.getApp().getNoBackupFilesDir());
+        return getAbsolutePath(LzInitUtil.getApp().getNoBackupFilesDir());
     }
 
     /**
@@ -1569,7 +1569,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppDataPath() {
         if (isExternalStorageDisable()) return "";
-        File externalCacheDir = FeInitUtil.getApp().getExternalCacheDir();
+        File externalCacheDir = LzInitUtil.getApp().getExternalCacheDir();
         if (externalCacheDir == null) return "";
         return getAbsolutePath(externalCacheDir.getParentFile());
     }
@@ -1581,7 +1581,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppCachePath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalCacheDir());
+        return getAbsolutePath(LzInitUtil.getApp().getExternalCacheDir());
     }
 
     /**
@@ -1591,7 +1591,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppFilesPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(null));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(null));
     }
 
     /**
@@ -1601,7 +1601,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppMusicPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_MUSIC));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_MUSIC));
     }
 
     /**
@@ -1611,7 +1611,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppPodcastsPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_PODCASTS));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_PODCASTS));
     }
 
     /**
@@ -1621,7 +1621,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppRingtonesPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_RINGTONES));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_RINGTONES));
     }
 
     /**
@@ -1631,7 +1631,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppAlarmsPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_ALARMS));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_ALARMS));
     }
 
     /**
@@ -1641,7 +1641,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppNotificationsPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_NOTIFICATIONS));
     }
 
     /**
@@ -1651,7 +1651,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppPicturesPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_PICTURES));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_PICTURES));
     }
 
     /**
@@ -1661,7 +1661,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppMoviesPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_MOVIES));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_MOVIES));
     }
 
     /**
@@ -1671,7 +1671,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppDownloadPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
     }
 
     /**
@@ -1681,7 +1681,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppDcimPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_DCIM));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_DCIM));
     }
 
     /**
@@ -1692,9 +1692,9 @@ public class FeFileUtils {
     public static String getExternalAppDocumentsPath() {
         if (isExternalStorageDisable()) return "";
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(null)) + "/Documents";
+            return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(null)) + "/Documents";
         }
-        return getAbsolutePath(FeInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS));
+        return getAbsolutePath(LzInitUtil.getApp().getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS));
     }
 
     /**
@@ -1704,7 +1704,7 @@ public class FeFileUtils {
      */
     public static String getExternalAppObbPath() {
         if (isExternalStorageDisable()) return "";
-        return getAbsolutePath(FeInitUtil.getApp().getObbDir());
+        return getAbsolutePath(LzInitUtil.getApp().getObbDir());
     }
 
     private static boolean isExternalStorageDisable() {

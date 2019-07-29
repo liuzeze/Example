@@ -1,7 +1,7 @@
 package com.future.electronicmusic
 
 import android.app.Application
-import com.future.utilslib.utils.FeInitUtil
+import com.future.utilslib.utils.LzInitUtil
 import com.lzx.starrysky.manager.MusicManager
 
 
@@ -13,7 +13,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        FeInitUtil.init(this)
+        LzInitUtil.init(this)
         MusicManager.initMusicManager(this);
     }
 }

@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.future.utilslib.R;
+import com.future.utilslib.utils.LzScreenUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,8 +21,8 @@ import java.util.TimerTask;
 /**
  * @author 刘泽
  */
-public class FeAlertDialog {
-    private FeAlertDialog mLpAlertDialog;
+public class LzAlertDialog {
+    private LzAlertDialog mLpAlertDialog;
     private Context context;
     private Dialog dialog;
     private LinearLayout ll_btn_group;
@@ -56,14 +57,14 @@ public class FeAlertDialog {
     private FrameLayout mDialogRoot;
 
 
-    public FeAlertDialog(Context context) {
+    public LzAlertDialog(Context context) {
         this.context = context;
         mLpAlertDialog = this;
         WindowManager windowManager = (WindowManager) context
                 .getSystemService(Context.WINDOW_SERVICE);
     }
 
-    public FeAlertDialog builder() {
+    public LzAlertDialog builder() {
         // 获取Dialog布局
         View view = LayoutInflater.from(context).inflate(
                 R.layout.view_alertdialog, null);
@@ -105,13 +106,13 @@ public class FeAlertDialog {
      * @param autoDismissTime 关闭时间长度
      * @return 当前帮助类
      */
-    public FeAlertDialog setAutoDismissTime(int autoDismissTime) {
+    public LzAlertDialog setAutoDismissTime(int autoDismissTime) {
         mMillisInFuture = autoDismissTime;
         startTimer();
         return this;
     }
 
-    public FeAlertDialog setTitle(String title) {
+    public LzAlertDialog setTitle(String title) {
         showTitle = true;
         if (TextUtils.isEmpty(title)) {
             txt_title.setText("请输入提示标题");
@@ -121,7 +122,7 @@ public class FeAlertDialog {
         return this;
     }
 
-    public FeAlertDialog setMsg(String msg) {
+    public LzAlertDialog setMsg(String msg) {
         showMsg = true;
         if (TextUtils.isEmpty(msg)) {
             txt_msg.setText("请输入提示内容");
@@ -131,7 +132,7 @@ public class FeAlertDialog {
         return this;
     }
 
-    public FeAlertDialog setContentView(View view) {
+    public LzAlertDialog setContentView(View view) {
         showContentView = true;
         if (view == null) {
             showContentView = false;
@@ -148,7 +149,7 @@ public class FeAlertDialog {
         return this;
     }
 
-    public FeAlertDialog setCancelable(boolean cancel) {
+    public LzAlertDialog setCancelable(boolean cancel) {
         mCancel = cancel;
         dialog.setCancelable(cancel);
         return this;
@@ -161,7 +162,7 @@ public class FeAlertDialog {
      * @param listener
      * @return
      */
-    public FeAlertDialog setPositiveButton(String text,
+    public LzAlertDialog setPositiveButton(String text,
                                            final OnClickListener listener) {
         showPosBtn = true;
         if (TextUtils.isEmpty(text)) {
@@ -188,7 +189,7 @@ public class FeAlertDialog {
      * @param listener
      * @return
      */
-    public FeAlertDialog setConfirmButton(String text,
+    public LzAlertDialog setConfirmButton(String text,
                                           final OnClickListener listener) {
         showPosBtn = true;
         if (TextUtils.isEmpty(text)) {
@@ -208,7 +209,7 @@ public class FeAlertDialog {
         return this;
     }
 
-    public FeAlertDialog setNegativeButton(String text,
+    public LzAlertDialog setNegativeButton(String text,
                                            final OnClickListener listener) {
         showNegBtn = true;
         if (TextUtils.isEmpty(text)) {
@@ -233,7 +234,7 @@ public class FeAlertDialog {
      *
      * @param onDismisListener
      */
-    public FeAlertDialog setOnDismisListener(DialogInterface.OnDismissListener onDismisListener) {
+    public LzAlertDialog setOnDismisListener(DialogInterface.OnDismissListener onDismisListener) {
         if (onDismisListener != null) {
             dialog.setOnDismissListener(onDismisListener);
         }
@@ -279,6 +280,7 @@ public class FeAlertDialog {
         }
 
         setFullScreen();
+
     }
 
     /**
@@ -288,7 +290,7 @@ public class FeAlertDialog {
         Window window = dialog.getWindow();
         WindowManager.LayoutParams lp = window.getAttributes();
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = LzScreenUtils.getScreenHeight();
         lp.gravity = Gravity.CENTER;
         window.setAttributes(lp);
     }
@@ -298,7 +300,7 @@ public class FeAlertDialog {
      *
      * @return 返回对话框对象
      */
-    public FeAlertDialog show() {
+    public LzAlertDialog show() {
         try {
             setLayout();
             dialog.show();
@@ -386,7 +388,7 @@ public class FeAlertDialog {
      *
      * @param clickable
      */
-    public FeAlertDialog setBtnPosClickable(boolean clickable) {
+    public LzAlertDialog setBtnPosClickable(boolean clickable) {
         btn_pos.setClickable(clickable);
         return this;
     }
@@ -396,7 +398,7 @@ public class FeAlertDialog {
      *
      * @param clickable
      */
-    public FeAlertDialog setBtnNegClickable(boolean clickable) {
+    public LzAlertDialog setBtnNegClickable(boolean clickable) {
         btn_neg.setClickable(clickable);
         return this;
     }

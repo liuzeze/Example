@@ -16,7 +16,7 @@ import java.util.Stack;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2019-07-12       创建class
  */
-public class FeActivityTool {
+public class LzActivityTool {
 
     private static Stack<Activity> activityStack;
 

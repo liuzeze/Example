@@ -7,10 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import com.lz.fram.base.RxPresenter;
 
-/**
- * Activity 基类
- * Created by 刘泽 on 2017/7/10 18:50.
- */
 
 public abstract class BaseUiPresenter extends RxPresenter {
 

@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2018-06-13       创建class
  */
-public class FeMathUtils {
+public class LzMathUtils {
 
     /**
      * 保留2位小数，不展示无效0
@@ -22,7 +22,7 @@ public class FeMathUtils {
      */
     public static final String FORMAT_000 = "000";
 
-    private FeMathUtils() {
+    private LzMathUtils() {
     }
 
     //这个类不能实例化

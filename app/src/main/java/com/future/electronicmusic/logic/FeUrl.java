@@ -1,8 +1,8 @@
 package com.future.electronicmusic.logic;
 
 import com.future.utilslib.BuildConfig;
-import com.future.utilslib.utils.FeInitUtil;
-import com.future.utilslib.utils.FeSPUtils;
+import com.future.utilslib.utils.LzInitUtil;
+import com.future.utilslib.utils.LzSPUtils;
 
 /**
  * Created by Administrator on 2018/5/2 0002.
@@ -14,7 +14,7 @@ public final class FeUrl {
     static {
         if (BuildConfig.DEBUG) {
             try {
-                boolean s = FeSPUtils.getBoolean(FeInitUtil.APPBASEYRL);
+                boolean s = LzSPUtils.getBoolean(LzInitUtil.APPBASEYRL);
                 if (s) {
                     BASE_URl = BuildConfig.API_ONLINE_URL;
                 }

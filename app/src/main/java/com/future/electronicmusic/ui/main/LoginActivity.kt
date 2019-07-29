@@ -6,7 +6,7 @@ import com.future.electronicmusic.ui.main.fragment.presenter.LoginContract
 import com.future.electronicmusic.ui.main.fragment.presenter.LoginPresenter
 import com.future.utilslib.base.BaseActivity
 import com.future.utilslib.base.InjectLayout
-import com.future.utilslib.utils.FeToast
+import com.future.utilslib.utils.LzToast
 import com.future.utilslib.view.statu.StatusView
 import com.lz.fram.scope.AttachPresenter
 import kotlinx.android.synthetic.main.activity_login.*
@@ -38,7 +38,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
             val password = cet_password.textStrign
             mPresenter!!.login(userName, password)
         }
-        tv_regist.setOnClickListener { FeToast.showToast("注册") }
+        tv_regist.setOnClickListener { LzToast.showToast("注册") }
         swipePanel.setOnFullSwipeListener {
             finish()
             swipePanel.close()

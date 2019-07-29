@@ -1,10 +1,14 @@
 package com.future.utilslib.base;
 
 import android.app.Activity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.future.utilslib.R;
+import com.future.utilslib.view.SwipePanel;
 import com.future.utilslib.view.toolbar.TitleToolbar;
+import io.reactivex.annotations.Nullable;
 
 /**
  * -----------作者----------日期----------变更内容-----
@@ -38,6 +42,25 @@ public class InjectManager {
                 target.setContentView(value);
             }
         }
+    }
+
+    public static View getView(Class tClass, LayoutInflater inflater, @Nullable ViewGroup container) {
+        Class<?> aClass = tClass;
+        InjectLayout layoutId = aClass.getAnnotation(InjectLayout.class);
+        View inflate;
+        if (layoutId.isShowFragTitle()) {
+            SwipePanel root = (SwipePanel) inflater.inflate(R.layout.layout_root, null);
+            root.setLeftEnabled(false);
+            LinearLayout linearLayout = root.findViewById(R.id.container);
+            TitleToolbar titleToolbar = root.findViewById(R.id.common_toolbar);
+            titleToolbar.setTitle(layoutId.titleName());
+            titleToolbar.setBackVisible(layoutId.fragBackIcon());
+            inflater.inflate(layoutId.layoutId(), linearLayout);
+            inflate = root;
+        } else {
+            inflate = inflater.inflate(layoutId.layoutId(), container, false);
+        }
+        return inflate;
     }
 
 

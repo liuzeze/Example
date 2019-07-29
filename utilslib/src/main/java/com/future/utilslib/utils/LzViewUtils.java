@@ -53,9 +53,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author xuexiang
  * @since 2019/1/3 上午10:05
  */
-public final class FeViewUtils {
+public final class LzViewUtils {
 
-    private FeViewUtils() {
+    private LzViewUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
@@ -204,7 +204,7 @@ public final class FeViewUtils {
      */
     public static void playViewBackgroundAnimation(final View v, @ColorInt int startColor, @ColorInt int endColor, long duration, int repeatCount, int setAnimTagId, final Runnable endAction) {
         final Drawable oldBgDrawable = v.getBackground(); // 存储旧的背景
-        FeViewUtils.setBackgroundColorKeepPadding(v, startColor);
+        LzViewUtils.setBackgroundColorKeepPadding(v, startColor);
         final ValueAnimator anim = new ValueAnimator();
         anim.setIntValues(startColor, endColor);
         anim.setDuration(duration / (repeatCount + 1));
@@ -214,7 +214,7 @@ public final class FeViewUtils {
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                FeViewUtils.setBackgroundColorKeepPadding(v, (Integer) animation.getAnimatedValue());
+                LzViewUtils.setBackgroundColorKeepPadding(v, (Integer) animation.getAnimatedValue());
             }
         });
         if (setAnimTagId != 0) {

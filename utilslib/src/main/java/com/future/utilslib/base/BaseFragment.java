@@ -16,10 +16,7 @@ import com.lz.fram.inject.PresenterDispatch;
 import com.lz.fram.inject.PresenterProviders;
 import io.reactivex.annotations.Nullable;
 
-/**
- * Activity 基类
- * Created by 刘泽 on 2017/7/10 18:50.
- */
+
 
 public abstract class BaseFragment extends BaseVisibleFragment implements BaseView {
 
@@ -39,26 +36,13 @@ public abstract class BaseFragment extends BaseVisibleFragment implements BaseVi
     }
 
     private View getRootView(LayoutInflater inflater, @Nullable ViewGroup container) {
-        Class<?> aClass = getClass();
-        InjectLayout layoutId = aClass.getAnnotation(InjectLayout.class);
-        View inflate;
-        if (layoutId.isShowFragTitle()) {
-            SwipePanel root = (SwipePanel) inflater.inflate(R.layout.layout_root, null);
-            root.setLeftEnabled(false);
-            LinearLayout linearLayout = root.findViewById(R.id.container);
-            TitleToolbar titleToolbar = root.findViewById(R.id.common_toolbar);
-            titleToolbar.setTitle(layoutId.titleName());
-            titleToolbar.setBackVisible(layoutId.fragBackIcon());
-            inflater.inflate(layoutId.layoutId(), linearLayout);
-            inflate = root;
-        } else {
-            inflate = inflater.inflate(layoutId.layoutId(), container, false);
-        }
+        View inflate = InjectManager.getView(getClass(), inflater, container);
         PresenterDispatch presenterDispatch = PresenterProviders.inject(this).presenterCreate();
         presenterDispatch.attachView(this, getLifecycle());
 
         return inflate;
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

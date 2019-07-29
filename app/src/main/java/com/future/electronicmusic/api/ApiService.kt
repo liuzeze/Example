@@ -18,7 +18,7 @@ interface ApiService {
     ): Observable<String>
 
 
-    @GET("http://lf.snssdk.com/api/news/feed/v62/?iid=12507202490&device_id=37487219424&refer=1&count=20&aid=13")
+    @GET("news/feed/v62/?iid=12507202490&device_id=37487219424&refer=1&count=20&aid=13")
     fun login(
         @Query("userName") userName: String,
         @Query("password") password: String

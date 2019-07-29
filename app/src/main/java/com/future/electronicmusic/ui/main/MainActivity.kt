@@ -12,8 +12,8 @@ import com.future.electronicmusic.ui.main.fragment.MyFragment
 import com.future.electronicmusic.ui.main.fragment.OrderFragment
 import com.future.utilslib.base.BaseActivity
 import com.future.utilslib.base.InjectLayout
-import com.future.utilslib.utils.FeFragmentUtils
-import com.future.utilslib.utils.FeToast
+import com.future.utilslib.utils.LzFragmentUtils
+import com.future.utilslib.utils.LzToast
 import com.gyf.immersionbar.ImmersionBar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -66,7 +66,7 @@ class MainActivity : BaseActivity() {
         main_tab.showMsg(1, 22)
         main_tab.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
-                FeFragmentUtils.showHide(position, mFragmentList)
+                LzFragmentUtils.showHide(position, mFragmentList)
                 val immersionBar = ImmersionBar
                     .with(mActivity)
                     .autoStatusBarDarkModeEnable(true, 0.2f)
@@ -87,7 +87,7 @@ class MainActivity : BaseActivity() {
             }
         })
 
-        FeFragmentUtils.add(supportFragmentManager, mFragmentList, R.id.main_pager, 0)
+        LzFragmentUtils.add(supportFragmentManager, mFragmentList, R.id.main_pager, 0)
     }
 
     /**
@@ -95,7 +95,7 @@ class MainActivity : BaseActivity() {
      */
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return FeToast.doubleClickExit() && super.onKeyDown(keyCode, event)
+            return LzToast.doubleClickExit() && super.onKeyDown(keyCode, event)
         }
         return super.onKeyDown(keyCode, event)
     }

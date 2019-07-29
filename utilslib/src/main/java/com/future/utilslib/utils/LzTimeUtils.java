@@ -17,7 +17,7 @@ import java.util.Locale;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2018-07-12       先不要使用
  */
-public class FeTimeUtils {
+public class LzTimeUtils {
 
 
     /**
@@ -95,7 +95,7 @@ public class FeTimeUtils {
 //    public static final String DATE_FMT_YMD = "yyyy年MM月dd日";
 
 
-    private FeTimeUtils() {
+    private LzTimeUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 

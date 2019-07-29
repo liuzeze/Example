@@ -8,12 +8,12 @@ import android.view.View;
  * 对话框弹出帮助类，汇集了多种对话框的简单调用
  * Created by 刘泽 on 2018/7/13
  */
-public class FeDialogUtils {
+public class LzDialogUtils {
 
-    private static FeAlertDialog mSaAlertDialog;
+    private static LzAlertDialog mSaAlertDialog;
 
 
-    public static FeAlertDialog alertTitletDialog(Context context,
+    public static LzAlertDialog alertTitletDialog(Context context,
                                                   String title,
                                                   String positiveBtnStr,
                                                   View.OnClickListener positiveClickListener,
@@ -23,7 +23,7 @@ public class FeDialogUtils {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setTitle(title)
                 .setPositiveButton(positiveBtnStr,
                         positiveClickListener != null ? positiveClickListener : new View.OnClickListener() {
@@ -42,7 +42,7 @@ public class FeDialogUtils {
         return mSaAlertDialog;
     }
 
-    public static FeAlertDialog alertContentDialog(Context context,
+    public static LzAlertDialog alertContentDialog(Context context,
                                                    String content,
                                                    String positiveBtnStr,
                                                    View.OnClickListener positiveClickListener,
@@ -52,7 +52,7 @@ public class FeDialogUtils {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setMsg(content)
                 .setPositiveButton(positiveBtnStr,
                         positiveClickListener != null ? positiveClickListener : new View.OnClickListener() {
@@ -72,7 +72,7 @@ public class FeDialogUtils {
     }
 
 
-    public static FeAlertDialog alertConfirmDialog(Context context,
+    public static LzAlertDialog alertConfirmDialog(Context context,
                                                    String title,
                                                    String content,
                                                    String positiveBtnStr,
@@ -85,7 +85,7 @@ public class FeDialogUtils {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setTitle(title)
                 .setMsg(content)
                 .setPositiveButton(positiveBtnStr,
@@ -106,7 +106,7 @@ public class FeDialogUtils {
         return mSaAlertDialog;
     }
 
-    public static FeAlertDialog alertConfirmDialog(Context context,
+    public static LzAlertDialog alertConfirmDialog(Context context,
                                                    String title,
                                                    String content,
                                                    String comfirmText,
@@ -116,7 +116,7 @@ public class FeDialogUtils {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setTitle(title)
                 .setMsg(content)
                 .setConfirmButton(comfirmText, confirmClickListener != null ? confirmClickListener : new View.OnClickListener() {
@@ -130,7 +130,7 @@ public class FeDialogUtils {
         return mSaAlertDialog;
     }
 
-    public static FeAlertDialog alertTimeDialog(Context context,
+    public static LzAlertDialog alertTimeDialog(Context context,
                                                 String title,
                                                 String content,
                                                 int time) {
@@ -139,7 +139,7 @@ public class FeDialogUtils {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setAutoDismissTime(time)
                 .setTitle(title)
                 .setMsg(content)
@@ -150,14 +150,14 @@ public class FeDialogUtils {
     }
 
 
-    public static FeAlertDialog alertViewDialog(Context context, View view, String pos, View.OnClickListener positiveClickListener,
+    public static LzAlertDialog alertViewDialog(Context context, View view, String pos, View.OnClickListener positiveClickListener,
                                                 String neg, View.OnClickListener negativeClickListener) {
 
         if (mSaAlertDialog != null) {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setContentView(view)
                 .setPositiveButton(pos,
                         positiveClickListener != null ? positiveClickListener : new View.OnClickListener() {
@@ -177,13 +177,13 @@ public class FeDialogUtils {
         return mSaAlertDialog;
     }
 
-    public static FeAlertDialog alertViewDialog(Context context, View view) {
+    public static LzAlertDialog alertViewDialog(Context context, View view) {
 
         if (mSaAlertDialog != null) {
             mSaAlertDialog.dismiss();
         }
 
-        mSaAlertDialog = new FeAlertDialog(context).builder()
+        mSaAlertDialog = new LzAlertDialog(context).builder()
                 .setContentView(view)
                 .show();
 

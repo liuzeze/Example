@@ -14,14 +14,14 @@ import java.util.Map;
  * 存取SharedPreferences工具类，存储用户登录账户信息，用户信息，查询记录等
  * Created by donghongyu on 2016/5/30.
  */
-public class FeSPUtils {
+public class LzSPUtils {
 
     /**
      * 保存在手机里面的文件名
      */
     public static final String FILE_NAME = "fe_data";
 
-    private FeSPUtils() {
+    private LzSPUtils() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
@@ -34,7 +34,7 @@ public class FeSPUtils {
      */
     public static void put(String key, Object obj) {
 
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
         if (obj instanceof String) {
@@ -62,7 +62,7 @@ public class FeSPUtils {
      * @return 返回查询到的sp中存在的key对应的数据
      */
     public static Object get(String key, Object defaultObj) {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
 
         if (defaultObj instanceof String) {
             return sp.getString(key, (String) defaultObj);
@@ -85,7 +85,7 @@ public class FeSPUtils {
      * @param key 要获取的key
      */
     public static void remove(String key) {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);
         SharedPreferencesCompat.apply(editor);
@@ -157,7 +157,7 @@ public class FeSPUtils {
      * 清除所有数据
      */
     public static void clear() {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.clear();
         SharedPreferencesCompat.apply(editor);
@@ -170,7 +170,7 @@ public class FeSPUtils {
      * @return true-要查询的key已存在，false-不存在
      */
     public static boolean contains(String key) {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         return sp.contains(key);
     }
 
@@ -180,7 +180,7 @@ public class FeSPUtils {
      * @return 返回sp文件所有的键值对应数据
      */
     public static Map<String, ?> getAll() {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         return sp.getAll();
     }
 
@@ -233,7 +233,7 @@ public class FeSPUtils {
      * @param object
      */
     public static void setObject(String key, Object object) {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
 
         //创建字节输出流
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -266,7 +266,7 @@ public class FeSPUtils {
 
     @SuppressWarnings("unchecked")
     public static <T> T getObject(String key, Class<T> clazz) {
-        SharedPreferences sp = FeInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = LzInitUtil.getApp().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         if (sp.contains(key)) {
             String objectVal = sp.getString(key, null);
             byte[] buffer = Base64.decode(objectVal, Base64.DEFAULT);

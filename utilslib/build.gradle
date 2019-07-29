@@ -21,6 +21,13 @@ android {
             buildConfigField("String", "API_ONLINE_URL", rootProject.ext.apiUrl.releaseUrl)
             buildConfigField "String", "BUGGLY_APPID", rootProject.ext.appKey.buglyAppId
         }
+        preRelease {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "API_URL", rootProject.ext.apiUrl.preReleaseUrl)
+            buildConfigField("String", "API_ONLINE_URL", rootProject.ext.apiUrl.releaseUrl)
+            buildConfigField "String", "BUGGLY_APPID", rootProject.ext.appKey.buglyAppId
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

@@ -8,10 +8,10 @@ import android.content.Intent
 import com.future.electronicmusic.ui.main.LoginActivity
 import com.future.utilslib.base.BaseFragment
 import com.future.utilslib.base.InjectLayout
-import com.future.utilslib.dialog.FeDialogUtils
-import com.future.utilslib.utils.FeInitUtil
-import com.future.utilslib.utils.FeSPUtils
-import com.future.utilslib.utils.FeToast
+import com.future.utilslib.dialog.LzDialogUtils
+import com.future.utilslib.utils.LzInitUtil
+import com.future.utilslib.utils.LzSPUtils
+import com.future.utilslib.utils.LzToast
 import kotlinx.android.synthetic.main.fragment_my.*
 
 
@@ -37,8 +37,10 @@ class MessageFragment : BaseFragment() {
             startActivityForResult(Intent(mContext, LoginActivity::class.java), 100)
         }
         tv_change_url.setOnClickListener {
-            FeSPUtils.putBoolean(FeInitUtil.APPBASEYRL, !FeSPUtils.getBoolean(FeInitUtil.APPBASEYRL))
-            FeDialogUtils.alertConfirmDialog(mContext, "提示信息", "切换之后必须重启APP", "", {
+            LzSPUtils.putBoolean(
+                LzInitUtil.APPBASEYRL, !LzSPUtils.getBoolean(
+                    LzInitUtil.APPBASEYRL))
+            LzDialogUtils.alertConfirmDialog(mContext, "提示信息", "切换之后必须重启APP", "", {
 
                 val intent = mContext.getPackageManager().getLaunchIntentForPackage(mContext.packageName);
                 val restartIntent =
@@ -55,7 +57,7 @@ class MessageFragment : BaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        FeToast.showToast("${resultCode}=====${requestCode}")
+        LzToast.showToast("${resultCode}=====${requestCode}")
         tv_login.text = "登录成功"
     }
 }

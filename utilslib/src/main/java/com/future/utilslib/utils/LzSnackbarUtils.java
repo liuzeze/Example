@@ -43,9 +43,9 @@ import java.lang.ref.WeakReference;
  * @author xuexiang
  * @since 2018/12/18 下午5:58
  */
-public class FeSnackbarUtils {
+public class LzSnackbarUtils {
 
-    private static final String TAG = "FeSnackbarUtils";
+    private static final String TAG = "LzSnackbarUtils";
 
     //设置Snackbar背景颜色
     private static int sColorInfo = 0xFF299EE3;
@@ -56,11 +56,11 @@ public class FeSnackbarUtils {
     //工具类当前持有的Snackbar实例
     private static WeakReference<Snackbar> mSnackbarWeakRef;
 
-    private FeSnackbarUtils() {
+    private LzSnackbarUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
-    private FeSnackbarUtils(@Nullable WeakReference<Snackbar> snackbarWeakReference) {
+    private LzSnackbarUtils(@Nullable WeakReference<Snackbar> snackbarWeakReference) {
         mSnackbarWeakRef = snackbarWeakReference;
     }
 
@@ -70,7 +70,7 @@ public class FeSnackbarUtils {
      * @param colorInfo
      */
     public static void setColorInfo(int colorInfo) {
-        FeSnackbarUtils.sColorInfo = colorInfo;
+        LzSnackbarUtils.sColorInfo = colorInfo;
     }
 
     /**
@@ -79,7 +79,7 @@ public class FeSnackbarUtils {
      * @param colorConfirm
      */
     public static void setColorConfirm(int colorConfirm) {
-        FeSnackbarUtils.sColorConfirm = colorConfirm;
+        LzSnackbarUtils.sColorConfirm = colorConfirm;
     }
 
     /**
@@ -88,7 +88,7 @@ public class FeSnackbarUtils {
      * @param colorWarning
      */
     public static void setColorWarning(int colorWarning) {
-        FeSnackbarUtils.sColorWarning = colorWarning;
+        LzSnackbarUtils.sColorWarning = colorWarning;
     }
 
     /**
@@ -97,7 +97,7 @@ public class FeSnackbarUtils {
      * @param colorDanger
      */
     public static void setColorDanger(int colorDanger) {
-        FeSnackbarUtils.sColorDanger = colorDanger;
+        LzSnackbarUtils.sColorDanger = colorDanger;
     }
 
     /**
@@ -121,7 +121,7 @@ public class FeSnackbarUtils {
      * @param message
      * @return
      */
-    public static FeSnackbarUtils Short(View view, String message) {
+    public static LzSnackbarUtils Short(View view, String message) {
         /*
         <view xmlns:android="http://schemas.android.com/apk/res/android"
           class="android.support.design.widget.Snackbar$SnackbarLayout"
@@ -146,7 +146,7 @@ public class FeSnackbarUtils {
         </shape>
         <color name="design_snackbar_background_color">#323232</color>
         */
-        return new FeSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_SHORT))).backColor(0XFF323232);
+        return new LzSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_SHORT))).backColor(0XFF323232);
     }
 
     /**
@@ -157,8 +157,8 @@ public class FeSnackbarUtils {
      * @param message
      * @return
      */
-    public static FeSnackbarUtils Long(View view, String message) {
-        return new FeSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_LONG))).backColor(0XFF323232);
+    public static LzSnackbarUtils Long(View view, String message) {
+        return new LzSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_LONG))).backColor(0XFF323232);
     }
 
     /**
@@ -169,8 +169,8 @@ public class FeSnackbarUtils {
      * @param message
      * @return
      */
-    public static FeSnackbarUtils Indefinite(View view, String message) {
-        return new FeSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE))).backColor(0XFF323232);
+    public static LzSnackbarUtils Indefinite(View view, String message) {
+        return new LzSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE))).backColor(0XFF323232);
     }
 
     /**
@@ -182,14 +182,14 @@ public class FeSnackbarUtils {
      * @param duration 展示时长(毫秒)
      * @return
      */
-    public static FeSnackbarUtils Custom(View view, String message, int duration) {
-        return new FeSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_SHORT).setDuration(duration))).backColor(0XFF323232);
+    public static LzSnackbarUtils Custom(View view, String message, int duration) {
+        return new LzSnackbarUtils(new WeakReference<>(Snackbar.make(view, message, Snackbar.LENGTH_SHORT).setDuration(duration))).backColor(0XFF323232);
     }
 
     /**
      * 设置mSnackbar背景色为  sColorInfo
      */
-    public FeSnackbarUtils info() {
+    public LzSnackbarUtils info() {
         if (getSnackbar() != null) {
             getSnackbar().getView().setBackgroundColor(sColorInfo);
         }
@@ -199,7 +199,7 @@ public class FeSnackbarUtils {
     /**
      * 设置mSnackbar背景色为  sColorConfirm
      */
-    public FeSnackbarUtils confirm() {
+    public LzSnackbarUtils confirm() {
         if (getSnackbar() != null) {
             getSnackbar().getView().setBackgroundColor(sColorConfirm);
         }
@@ -209,7 +209,7 @@ public class FeSnackbarUtils {
     /**
      * 设置Snackbar背景色为   sColorWarning
      */
-    public FeSnackbarUtils warning() {
+    public LzSnackbarUtils warning() {
         if (getSnackbar() != null) {
             getSnackbar().getView().setBackgroundColor(sColorWarning);
         }
@@ -219,7 +219,7 @@ public class FeSnackbarUtils {
     /**
      * 设置Snackbar背景色为   sColorWarning
      */
-    public FeSnackbarUtils danger() {
+    public LzSnackbarUtils danger() {
         if (getSnackbar() != null) {
             getSnackbar().getView().setBackgroundColor(sColorDanger);
         }
@@ -231,7 +231,7 @@ public class FeSnackbarUtils {
      *
      * @param backgroundColor
      */
-    public FeSnackbarUtils backColor(@ColorInt int backgroundColor) {
+    public LzSnackbarUtils backColor(@ColorInt int backgroundColor) {
         if (getSnackbar() != null) {
             getSnackbar().getView().setBackgroundColor(backgroundColor);
         }
@@ -243,7 +243,7 @@ public class FeSnackbarUtils {
      *
      * @param messageColor
      */
-    public FeSnackbarUtils messageColor(@ColorInt int messageColor) {
+    public LzSnackbarUtils messageColor(@ColorInt int messageColor) {
         if (getSnackbar() != null) {
             ((TextView) getSnackbar().getView().findViewById(R.id.snackbar_text)).setTextColor(messageColor);
         }
@@ -255,7 +255,7 @@ public class FeSnackbarUtils {
      *
      * @param actionTextColor
      */
-    public FeSnackbarUtils actionColor(@ColorInt int actionTextColor) {
+    public LzSnackbarUtils actionColor(@ColorInt int actionTextColor) {
         if (getSnackbar() != null) {
             ((Button) getSnackbar().getView().findViewById(R.id.snackbar_action)).setTextColor(actionTextColor);
         }
@@ -269,7 +269,7 @@ public class FeSnackbarUtils {
      * @param messageColor
      * @param actionTextColor
      */
-    public FeSnackbarUtils colors(@ColorInt int backgroundColor, @ColorInt int messageColor, @ColorInt int actionTextColor) {
+    public LzSnackbarUtils colors(@ColorInt int backgroundColor, @ColorInt int messageColor, @ColorInt int actionTextColor) {
         if (getSnackbar() != null) {
             getSnackbar().getView().setBackgroundColor(backgroundColor);
             ((TextView) getSnackbar().getView().findViewById(R.id.snackbar_text)).setTextColor(messageColor);
@@ -284,7 +284,7 @@ public class FeSnackbarUtils {
      * @param alpha
      * @return
      */
-    public FeSnackbarUtils alpha(float alpha) {
+    public LzSnackbarUtils alpha(float alpha) {
         if (getSnackbar() != null) {
             alpha = alpha >= 1.0f ? 1.0f : (alpha <= 0.0f ? 0.0f : alpha);
             getSnackbar().getView().setAlpha(alpha);
@@ -297,7 +297,7 @@ public class FeSnackbarUtils {
      *
      * @param gravity
      */
-    public FeSnackbarUtils gravityFrameLayout(int gravity) {
+    public LzSnackbarUtils gravityFrameLayout(int gravity) {
         if (getSnackbar() != null) {
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(getSnackbar().getView().getLayoutParams().width, getSnackbar().getView().getLayoutParams().height);
             params.gravity = gravity;
@@ -311,7 +311,7 @@ public class FeSnackbarUtils {
      *
      * @param gravity
      */
-    public FeSnackbarUtils gravityCoordinatorLayout(int gravity) {
+    public LzSnackbarUtils gravityCoordinatorLayout(int gravity) {
         if (getSnackbar() != null) {
             CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(getSnackbar().getView().getLayoutParams().width, getSnackbar().getView().getLayoutParams().height);
             params.gravity = gravity;
@@ -328,7 +328,7 @@ public class FeSnackbarUtils {
      * @param listener
      * @return
      */
-    public FeSnackbarUtils setAction(@StringRes int resId, View.OnClickListener listener) {
+    public LzSnackbarUtils setAction(@StringRes int resId, View.OnClickListener listener) {
         if (getSnackbar() != null) {
             return setAction(getSnackbar().getView().getResources().getText(resId), listener);
         } else {
@@ -344,7 +344,7 @@ public class FeSnackbarUtils {
      * @param listener
      * @return
      */
-    public FeSnackbarUtils setAction(CharSequence text, View.OnClickListener listener) {
+    public LzSnackbarUtils setAction(CharSequence text, View.OnClickListener listener) {
         if (getSnackbar() != null) {
             getSnackbar().setAction(text, listener);
         }
@@ -357,7 +357,7 @@ public class FeSnackbarUtils {
      * @param setCallback
      * @return
      */
-    public FeSnackbarUtils setCallback(Snackbar.Callback setCallback) {
+    public LzSnackbarUtils setCallback(Snackbar.Callback setCallback) {
         if (getSnackbar() != null) {
             getSnackbar().setCallback(setCallback);
         }
@@ -371,7 +371,7 @@ public class FeSnackbarUtils {
      * @param rightDrawable
      * @return
      */
-    public FeSnackbarUtils leftAndRightDrawable(@Nullable @DrawableRes Integer leftDrawable, @Nullable @DrawableRes Integer rightDrawable) {
+    public LzSnackbarUtils leftAndRightDrawable(@Nullable @DrawableRes Integer leftDrawable, @Nullable @DrawableRes Integer rightDrawable) {
         if (getSnackbar() != null) {
             Drawable drawableLeft = null;
             Drawable drawableRight = null;
@@ -400,7 +400,7 @@ public class FeSnackbarUtils {
      * @param rightDrawable
      * @return
      */
-    public FeSnackbarUtils leftAndRightDrawable(@Nullable Drawable leftDrawable, @Nullable Drawable rightDrawable) {
+    public LzSnackbarUtils leftAndRightDrawable(@Nullable Drawable leftDrawable, @Nullable Drawable rightDrawable) {
         if (getSnackbar() != null) {
             TextView message = getSnackbar().getView().findViewById(R.id.snackbar_text);
             LinearLayout.LayoutParams paramsMessage = (LinearLayout.LayoutParams) message.getLayoutParams();
@@ -427,7 +427,7 @@ public class FeSnackbarUtils {
      * @return
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public FeSnackbarUtils messageCenter() {
+    public LzSnackbarUtils messageCenter() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             if (getSnackbar() != null) {
                 TextView message = getSnackbar().getView().findViewById(R.id.snackbar_text);
@@ -445,7 +445,7 @@ public class FeSnackbarUtils {
      * @return
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public FeSnackbarUtils messageRight() {
+    public LzSnackbarUtils messageRight() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             if (getSnackbar() != null) {
                 TextView message = getSnackbar().getView().findViewById(R.id.snackbar_text);
@@ -464,7 +464,7 @@ public class FeSnackbarUtils {
      * @param index
      * @return
      */
-    public FeSnackbarUtils addView(int layoutId, int index) {
+    public LzSnackbarUtils addView(int layoutId, int index) {
         if (getSnackbar() != null) {
             //加载布局文件新建View
             View addView = LayoutInflater.from(getSnackbar().getView().getContext()).inflate(layoutId, null);
@@ -481,7 +481,7 @@ public class FeSnackbarUtils {
      * @param index
      * @return
      */
-    public FeSnackbarUtils addView(View addView, int index) {
+    public LzSnackbarUtils addView(View addView, int index) {
         if (getSnackbar() != null) {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);//设置新建布局参数
             //设置新建View在Snackbar内垂直居中显示
@@ -503,7 +503,7 @@ public class FeSnackbarUtils {
      * @param margin
      * @return
      */
-    public FeSnackbarUtils margins(int margin) {
+    public LzSnackbarUtils margins(int margin) {
         if (getSnackbar() != null) {
             return margins(margin, margin, margin, margin);
         } else {
@@ -522,7 +522,7 @@ public class FeSnackbarUtils {
      * @param bottom
      * @return
      */
-    public FeSnackbarUtils margins(int left, int top, int right, int bottom) {
+    public LzSnackbarUtils margins(int left, int top, int right, int bottom) {
         if (getSnackbar() != null) {
             ViewGroup.LayoutParams params = getSnackbar().getView().getLayoutParams();
             ((ViewGroup.MarginLayoutParams) params).setMargins(left, top, right, bottom);
@@ -533,12 +533,12 @@ public class FeSnackbarUtils {
 
     /**
      * 经试验发现:
-     *      执行过{@link FeSnackbarUtils#backColor(int)}后:background instanceof ColorDrawable
-     *      未执行过{@link FeSnackbarUtils#backColor(int)}:background instanceof GradientDrawable
+     *      执行过{@link LzSnackbarUtils#backColor(int)}后:background instanceof ColorDrawable
+     *      未执行过{@link LzSnackbarUtils#backColor(int)}:background instanceof GradientDrawable
      * @return
      */
     /*
-    public FeSnackbarUtils radius(){
+    public LzSnackbarUtils radius(){
         Drawable background = mSnackbarWeakRef.get().getView().getBackground();
         if(background instanceof GradientDrawable){
             Log.e("Jet","radius():GradientDrawable");
@@ -550,7 +550,7 @@ public class FeSnackbarUtils {
             Log.e("Jet","radius():StateListDrawable");
         }
         Log.e("Jet","radius()background:"+background.getClass().getSimpleName());
-        return new FeSnackbarUtils(mSnackbar);
+        return new LzSnackbarUtils(mSnackbar);
     }
     */
 
@@ -579,7 +579,7 @@ public class FeSnackbarUtils {
      * @param radius 圆角半径
      * @return
      */
-    public FeSnackbarUtils radius(float radius) {
+    public LzSnackbarUtils radius(float radius) {
         if (getSnackbar() != null) {
             //将要设置给mSnackbar的背景
             GradientDrawable background = getRadiusDrawable(getSnackbar().getView().getBackground());
@@ -600,7 +600,7 @@ public class FeSnackbarUtils {
      * @param strokeColor
      * @return
      */
-    public FeSnackbarUtils radius(int radius, int strokeWidth, @ColorInt int strokeColor) {
+    public LzSnackbarUtils radius(int radius, int strokeWidth, @ColorInt int strokeColor) {
         if (getSnackbar() != null) {
             //将要设置给mSnackbar的背景
             GradientDrawable background = getRadiusDrawable(getSnackbar().getView().getBackground());
@@ -638,13 +638,13 @@ public class FeSnackbarUtils {
                 android:textAlignment="viewStart"/>
         */
         //文字高度+paddingTop+paddingBottom : 14sp + 14dp*2
-        float SnackbarHeight = FeDp2Px.dp2px(getSnackbar().getView().getContext(), 28) + FeDp2Px.sp2px(getSnackbar().getView().getContext(), 14);
+        float SnackbarHeight = LzDp2Px.dp2px(getSnackbar().getView().getContext(), 28) + LzDp2Px.sp2px(getSnackbar().getView().getContext(), 14);
         return (int) SnackbarHeight;
     }
 
     /**
      * 设置Snackbar显示在指定View的上方
-     * 注:暂时仅支持单行的Snackbar,因为{@link FeSnackbarUtils#calculateSnackBarHeight()}暂时仅支持单行Snackbar的高度计算
+     * 注:暂时仅支持单行的Snackbar,因为{@link LzSnackbarUtils#calculateSnackBarHeight()}暂时仅支持单行Snackbar的高度计算
      *
      * @param targetView     指定View
      * @param contentViewTop Activity中的View布局区域 距离屏幕顶端的距离
@@ -652,7 +652,7 @@ public class FeSnackbarUtils {
      * @param marginRight    右边距
      * @return
      */
-    public FeSnackbarUtils above(View targetView, int contentViewTop, int marginLeft, int marginRight) {
+    public LzSnackbarUtils above(View targetView, int contentViewTop, int marginLeft, int marginRight) {
         if (getSnackbar() != null) {
             marginLeft = marginLeft <= 0 ? 0 : marginLeft;
             marginRight = marginRight <= 0 ? 0 : marginRight;
@@ -671,7 +671,7 @@ public class FeSnackbarUtils {
     }
 
     //CoordinatorLayout
-    public FeSnackbarUtils aboveCoordinatorLayout(View targetView, int contentViewTop, int marginLeft, int marginRight) {
+    public LzSnackbarUtils aboveCoordinatorLayout(View targetView, int contentViewTop, int marginLeft, int marginRight) {
         if (getSnackbar() != null) {
             marginLeft = marginLeft <= 0 ? 0 : marginLeft;
             marginRight = marginRight <= 0 ? 0 : marginRight;
@@ -691,7 +691,7 @@ public class FeSnackbarUtils {
 
     /**
      * 设置Snackbar显示在指定View的下方
-     * 注:暂时仅支持单行的Snackbar,因为{@link FeSnackbarUtils#calculateSnackBarHeight()}暂时仅支持单行Snackbar的高度计算
+     * 注:暂时仅支持单行的Snackbar,因为{@link LzSnackbarUtils#calculateSnackBarHeight()}暂时仅支持单行Snackbar的高度计算
      *
      * @param targetView     指定View
      * @param contentViewTop Activity中的View布局区域 距离屏幕顶端的距离
@@ -699,14 +699,14 @@ public class FeSnackbarUtils {
      * @param marginRight    右边距
      * @return
      */
-    public FeSnackbarUtils bellow(View targetView, int contentViewTop, int marginLeft, int marginRight) {
+    public LzSnackbarUtils bellow(View targetView, int contentViewTop, int marginLeft, int marginRight) {
         if (getSnackbar() != null) {
             marginLeft = marginLeft <= 0 ? 0 : marginLeft;
             marginRight = marginRight <= 0 ? 0 : marginRight;
             int[] locations = new int[2];
             targetView.getLocationOnScreen(locations);
             int snackbarHeight = calculateSnackBarHeight();
-            int screenHeight = FeScreenUtils.getScreenHeight();
+            int screenHeight = LzScreenUtils.getScreenHeight();
             //必须保证指定View的底部可见 且 单行Snackbar可以完整的展示
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 //为什么要'+2'? 因为在Android L(Build.VERSION_CODES.LOLLIPOP)以上,例如Button会有一定的'阴影(shadow)',阴影的大小由'高度(elevation)'决定.
@@ -729,14 +729,14 @@ public class FeSnackbarUtils {
         return this;
     }
 
-    public FeSnackbarUtils bellowCoordinatorLayout(View targetView, int contentViewTop, int marginLeft, int marginRight) {
+    public LzSnackbarUtils bellowCoordinatorLayout(View targetView, int contentViewTop, int marginLeft, int marginRight) {
         if (getSnackbar() != null) {
             marginLeft = marginLeft <= 0 ? 0 : marginLeft;
             marginRight = marginRight <= 0 ? 0 : marginRight;
             int[] locations = new int[2];
             targetView.getLocationOnScreen(locations);
             int snackbarHeight = calculateSnackBarHeight();
-            int screenHeight = FeScreenUtils.getScreenHeight();
+            int screenHeight = LzScreenUtils.getScreenHeight();
             //必须保证指定View的底部可见 且 单行Snackbar可以完整的展示
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 //为什么要'+2'? 因为在Android L(Build.VERSION_CODES.LOLLIPOP)以上,例如Button会有一定的'阴影(shadow)',阴影的大小由'高度(elevation)'决定.

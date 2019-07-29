@@ -2,8 +2,9 @@ ext {
 
     apiUrl = [
 
-            releaseUrl: '"http://lf.snssdk.com/api/"',
-            debugUrl  : '"http://www.baidu.com/"',
+            releaseUrl   : '"http://lf.snssdk.com/api/"',
+            preReleaseUrl: '"http://lf.snssdk.com/api/"',
+            debugUrl     : '"http://www.baidu.com/"',
     ]
     appKey = [
             buglyAppId: '"4a8eea659f"'
@@ -22,8 +23,10 @@ ext {
 
             debugAppName     : "应用预览版",
             releaseAppName   : "应用正式版",
+            preReleaseAppName: "预上线版本",
             debugAppIcon     : "@mipmap/ic_launcher_round",
             releaseAppIcon   : "@mipmap/ic_launcher",
+            preReleaseAppIcon: "@mipmap/ic_launcher",
 
             versionCode      : 1,
             versionName      : "1.0.0"

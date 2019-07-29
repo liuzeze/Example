@@ -6,13 +6,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.util.Log;
 import com.future.utilslib.BuildConfig;
 import com.future.utilslib.net.LoggerInterceptor;
-import com.lz.fram.net.RxRequestUtils;
-import com.lz.fram.net.http.ConfigModule;
-import com.lz.fram.net.http.GlobalConfigBuild;
+import com.lz.httplib.RxRequestUtils;
+import com.lz.httplib.http.ConfigModule;
+import com.lz.httplib.http.GlobalConfigBuild;
 import com.orhanobut.logger.*;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -20,12 +19,12 @@ import com.tencent.bugly.crashreport.CrashReport;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2019-01-22       创建class
  */
-public class FeInitUtil {
+public class LzInitUtil {
 
     //app环境切换
     public static final String APPBASEYRL = "APPBASEYRL";
 
-    private FeInitUtil() {
+    private LzInitUtil() {
     }
 
     private static Context sContext;
@@ -45,7 +44,7 @@ public class FeInitUtil {
         context.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                FeActivityTool.addActivity(activity);
+                LzActivityTool.addActivity(activity);
             }
 
             @Override
@@ -75,7 +74,7 @@ public class FeInitUtil {
 
             @Override
             public void onActivityDestroyed(Activity activity) {
-                FeActivityTool.finishActivity(activity);
+                LzActivityTool.finishActivity(activity);
 
             }
         });
@@ -120,7 +119,7 @@ public class FeInitUtil {
             public void applyOptions(GlobalConfigBuild.Builder builder) {
                 if (BuildConfig.DEBUG) {
                     builder.addInterceptor(new LoggerInterceptor());
-                    boolean appbaseyrl = FeSPUtils.getBoolean(APPBASEYRL);
+                    boolean appbaseyrl = LzSPUtils.getBoolean(APPBASEYRL);
                     if (!appbaseyrl) {
                         builder.baseurl(BuildConfig.API_URL);
                     } else {

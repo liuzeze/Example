@@ -18,10 +18,6 @@ import com.lz.fram.inject.PresenterProviders;
 import com.noober.background.BackgroundLibrary;
 import io.reactivex.annotations.Nullable;
 
-/**
- * Activity 基类
- * Created by 刘泽 on 2017/7/10 18:50.
- */
 
 public abstract class BaseActivity extends FragmentActivity implements BaseView {
 

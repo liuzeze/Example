@@ -24,9 +24,9 @@ import static android.Manifest.permission.WRITE_SETTINGS;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2019-07-12       创建class
  */
-public class FeScreenUtils {
+public class LzScreenUtils {
 
-    private FeScreenUtils() {
+    private LzScreenUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
@@ -36,7 +36,7 @@ public class FeScreenUtils {
      * @return the width of screen, in pixel
      */
     public static int getScreenWidth() {
-        WindowManager wm = (WindowManager) FeInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) LzInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
         if (wm == null) return -1;
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -53,7 +53,7 @@ public class FeScreenUtils {
      * @return the height of screen, in pixel
      */
     public static int getScreenHeight() {
-        WindowManager wm = (WindowManager) FeInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) LzInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
         if (wm == null) return -1;
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -70,7 +70,7 @@ public class FeScreenUtils {
      * @return the application's width of screen, in pixel
      */
     public static int getAppScreenWidth() {
-        WindowManager wm = (WindowManager) FeInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) LzInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
         if (wm == null) return -1;
         Point point = new Point();
         wm.getDefaultDisplay().getSize(point);
@@ -83,7 +83,7 @@ public class FeScreenUtils {
      * @return the application's height of screen, in pixel
      */
     public static int getAppScreenHeight() {
-        WindowManager wm = (WindowManager) FeInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) LzInitUtil.getApp().getSystemService(Context.WINDOW_SERVICE);
         if (wm == null) return -1;
         Point point = new Point();
         wm.getDefaultDisplay().getSize(point);
@@ -176,7 +176,7 @@ public class FeScreenUtils {
      * @return {@code true}: yes<br>{@code false}: no
      */
     public static boolean isLandscape() {
-        return FeInitUtil.getApp().getResources().getConfiguration().orientation
+        return LzInitUtil.getApp().getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
     }
 
@@ -186,7 +186,7 @@ public class FeScreenUtils {
      * @return {@code true}: yes<br>{@code false}: no
      */
     public static boolean isPortrait() {
-        return FeInitUtil.getApp().getResources().getConfiguration().orientation
+        return LzInitUtil.getApp().getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_PORTRAIT;
     }
 
@@ -262,7 +262,7 @@ public class FeScreenUtils {
      */
     public static boolean isScreenLock() {
         KeyguardManager km =
-                (KeyguardManager) FeInitUtil.getApp().getSystemService(Context.KEYGUARD_SERVICE);
+                (KeyguardManager) LzInitUtil.getApp().getSystemService(Context.KEYGUARD_SERVICE);
         if (km == null) return false;
         return km.inKeyguardRestrictedInputMode();
     }
@@ -276,7 +276,7 @@ public class FeScreenUtils {
     @RequiresPermission(WRITE_SETTINGS)
     public static void setSleepDuration(final int duration) {
         Settings.System.putInt(
-                FeInitUtil.getApp().getContentResolver(),
+                LzInitUtil.getApp().getContentResolver(),
                 Settings.System.SCREEN_OFF_TIMEOUT,
                 duration
         );
@@ -290,7 +290,7 @@ public class FeScreenUtils {
     public static int getSleepDuration() {
         try {
             return Settings.System.getInt(
-                    FeInitUtil.getApp().getContentResolver(),
+                    LzInitUtil.getApp().getContentResolver(),
                     Settings.System.SCREEN_OFF_TIMEOUT
             );
         } catch (Settings.SettingNotFoundException e) {

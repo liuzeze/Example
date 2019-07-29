@@ -18,7 +18,7 @@ import java.util.List;
  * -----------作者----------日期----------变更内容-----
  * -          刘泽      2018-11-12        fragment管理类
  */
-public class FeFragmentUtils {
+public class LzFragmentUtils {
 
 
     private static final int TYPE_ADD_FRAGMENT = 0x01;
@@ -34,7 +34,7 @@ public class FeFragmentUtils {
     private static final String ARGS_IS_ADD_STACK = "args_is_add_stack";
     private static final String ARGS_TAG = "args_tag";
 
-    private FeFragmentUtils() {
+    private LzFragmentUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 

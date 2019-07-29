@@ -7,8 +7,8 @@ import android.util.DisplayMetrics;
 /**
  * 常用单位转换的辅助类
  */
-public class FeDp2Px {
-    private FeDp2Px() {
+public class LzDp2Px {
+    private LzDp2Px() {
         /* cannot be instantiated */
         throw new UnsupportedOperationException("cannot be instantiated");
     }
