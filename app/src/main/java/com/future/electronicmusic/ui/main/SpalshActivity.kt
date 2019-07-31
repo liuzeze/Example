@@ -6,9 +6,9 @@ import android.os.CountDownTimer
 import android.view.View
 import com.future.electronicmusic.R
 import com.future.utilslib.base.BaseActivity
-import com.future.utilslib.base.InjectLayout
 import com.gyf.immersionbar.BarHide
 import com.gyf.immersionbar.ImmersionBar
+import com.lz.fram.base.InjectLayout
 import kotlinx.android.synthetic.main.activity_spalsh.*
 
 /**

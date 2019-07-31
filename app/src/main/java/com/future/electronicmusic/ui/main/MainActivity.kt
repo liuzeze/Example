@@ -11,10 +11,10 @@ import com.future.electronicmusic.ui.main.fragment.MessageFragment
 import com.future.electronicmusic.ui.main.fragment.MyFragment
 import com.future.electronicmusic.ui.main.fragment.OrderFragment
 import com.future.utilslib.base.BaseActivity
-import com.future.utilslib.base.InjectLayout
 import com.future.utilslib.utils.LzFragmentUtils
 import com.future.utilslib.utils.LzToast
 import com.gyf.immersionbar.ImmersionBar
+import com.lz.fram.base.InjectLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 

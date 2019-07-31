@@ -4,10 +4,9 @@ import com.future.electronicmusic.R
 import com.future.electronicmusic.ui.main.presenter.MyInforContract
 import com.future.electronicmusic.ui.main.presenter.MyInforPresenter
 import com.future.utilslib.base.BaseActivity
-import com.future.utilslib.base.InjectLayout
+import com.lz.fram.base.InjectLayout
 import com.lz.fram.scope.AttachPresenter
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 

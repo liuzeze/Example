@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:text="登录"
             android:textSize="18dp"
-            app:bl_corners_radius="10dp"
+            app:bl_corners_radius="100dp"
             app:bl_solid_color="@color/common_app_blue_0008ff"
             android:textColor="@color/common_app_white_ffffff"
             android:layout_marginTop="40dp"

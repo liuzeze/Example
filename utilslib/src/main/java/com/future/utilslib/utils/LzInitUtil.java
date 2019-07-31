@@ -12,6 +12,7 @@ import com.future.utilslib.net.LoggerInterceptor;
 import com.lz.httplib.RxRequestUtils;
 import com.lz.httplib.http.ConfigModule;
 import com.lz.httplib.http.GlobalConfigBuild;
+import com.noober.background.BackgroundLibrary;
 import com.orhanobut.logger.*;
 import com.tencent.bugly.crashreport.CrashReport;
 

@@ -3,7 +3,15 @@
     <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#D81B60</color>
-    <!-- **************************新颜色值;以上颜色不再维护，新模块必须使用下面颜色，没有的按照格式进行添加******************** -->
+
+
+
+
+    <!--==================公共颜色============================-->
+    <!--紫-->
+    <color name="common_app_purple_fb01ff">#fb01ff</color>
+    <color name="common_app_purple_e696e5">#e696e5</color>
+
     <!--红-->
     <color name="common_app_red_f01717">#f01717</color>
     <color name="common_app_red_f64840">#f64840</color>
@@ -24,10 +32,10 @@
     <color name="common_app_orange_fc9b00">#fc9b00</color>
     <color name="common_app_orange_ff9c02">#ff9c02</color>
     <color name="common_app_orange_ff8888">#ff8888</color>
+    <color name="common_app_orange_ff8522">#ff8522</color>
 
 
     <!--黄-->
-    <color name="common_app_yellow_ff8522">#ff8522</color>
     <color name="common_app_yellow_f9a369">#f9a369</color>
     <color name="common_app_yellow_ce8d37">#ce8d37</color>
     <color name="common_app_yellow_f3ff00">#f3ff00</color>
@@ -47,7 +55,7 @@
     <color name="common_app_blue_0008ff">#0008ff</color>
     <color name="common_app_blue_019ff0">#019ff0</color>
     <color name="common_app_blue_009df3">#009df3</color>
-    <color name="common_app_blue_009ff0">#009ff0</color><!--应用主色调-->
+    <color name="common_app_blue_009ff0">#009ff0</color>
     <color name="common_app_blue_049ff0">#049ff0</color>
     <color name="common_app_blue_43bfdf">#43bfdf</color>
     <color name="common_app_blue_63c6ee">#63c6ee</color>
@@ -83,9 +91,6 @@
     <color name="common_app_gray_eaeaea">#eaeaea</color>
     <color name="common_app_gray_cccccc">#cccccc</color>
     <color name="common_app_gray_e7fcff">#e7fcff</color>
-    <color name="common_app_gray_f5f5f5">#f5f5f5</color>
-    <color name="common_app_gray_f3f3f3">#f3f3f3</color>
-    <color name="common_app_gray_f0eeee">#f0eeee</color>
     <color name="common_app_gray_ececec">#ececec</color>
     <color name="common_app_gray_ebebeb">#ebebeb</color>
     <color name="common_app_gray_eeeeee">#eeeeee</color>
@@ -93,17 +98,16 @@
     <color name="common_app_gray_e5e5e5">#e5e5e5</color>
     <color name="common_app_gray_c9c9c9">#c9c9c9</color>
     <color name="common_app_gray_c8c7cc">#c8c7cc</color>
+    <color name="common_app_gray_f0eeee">#f0eeee</color>
+    <color name="common_app_gray_f3f3f3">#f3f3f3</color>
 
     <!--白-->
-    <color name="common_app_white_ffffff">#ffffff</color>
-    <color name="common_app_white_f8f8f8">#f8f8f8</color>
-    <color name="common_app_white_f7f7f7">#f7f7f7</color>
     <color name="common_app_white_f5f5f5">#f5f5f5</color>
+    <color name="common_app_white_f7f7f7">#f7f7f7</color>
+    <color name="common_app_white_f8f8f8">#f8f8f8</color>
     <color name="common_app_white_fafafa">#fafafa</color>
+    <color name="common_app_white_ffffff">#ffffff</color>
 
-    <!--紫-->
-    <color name="common_app_purple_fb01ff">#fb01ff</color>
-    <color name="common_app_purple_e696e5">#e696e5</color>
 
     <!--透明度-->  <!--从100~0的透明度-->
     <!--00%=FF （不透明）    5%=F2    10%=E5    15%=D8    20%=CC    25%=BF    30%=B2    35%=A5    40%=99    45%=8c    50%=7F

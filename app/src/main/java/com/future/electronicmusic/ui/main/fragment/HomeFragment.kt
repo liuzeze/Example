@@ -4,12 +4,9 @@ import com.future.electronicmusic.R
 import com.future.electronicmusic.ui.main.fragment.presenter.HomeContract
 import com.future.electronicmusic.ui.main.fragment.presenter.HomePresenter
 import com.future.utilslib.base.BaseFragment
-import com.future.utilslib.base.InjectLayout
+import com.lz.fram.base.InjectLayout
 import com.lz.fram.scope.AttachPresenter
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 /**
  *-----------作者----------日期----------变更内容-----

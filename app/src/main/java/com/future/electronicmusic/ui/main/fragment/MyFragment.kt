@@ -7,11 +7,11 @@ import android.content.Context
 import android.content.Intent
 import com.future.electronicmusic.R
 import com.future.utilslib.base.BaseFragment
-import com.future.utilslib.base.InjectLayout
 import com.future.utilslib.dialog.LzDialogUtils
 import com.future.utilslib.utils.LzInitUtil
 import com.future.utilslib.utils.LzSPUtils
 import com.future.utilslib.utils.LzToast
+import com.lz.fram.base.InjectLayout
 import com.lzx.starrysky.manager.MediaSessionConnection
 import kotlinx.android.synthetic.main.fragment_my.*
 

@@ -4,9 +4,8 @@ import com.future.electronicmusic.R
 import com.future.electronicmusic.ui.main.fragment.presenter.OrderContract
 import com.future.electronicmusic.ui.main.fragment.presenter.OrderPresenter
 import com.future.utilslib.base.BaseFragment
-import com.lz.fram.scope.AttachPresenter;
-
-import com.future.utilslib.base.InjectLayout
+import com.lz.fram.base.InjectLayout
+import com.lz.fram.scope.AttachPresenter
 
 
 /**
