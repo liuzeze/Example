@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.*;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -190,5 +191,20 @@ public final class LzResUtils {
         int blue = (int) ((Color.blue(color) * (1 - factor) / 255 + factor) * 255);
         return Color.argb(Color.alpha(color), red, green, blue);
     }
+    /**
+     * 获取 DisplayMetrics
+     *
+     * @return
+     */
+    public static DisplayMetrics getDisplayMetrics() {
+        return LzInitUtil.getApp().getResources().getDisplayMetrics();
+    }
 
+    public static float getDensity() {
+        return LzInitUtil.getApp().getResources().getDisplayMetrics().density;
+    }
+
+    public static float getFontDensity() {
+        return LzInitUtil.getApp().getResources().getDisplayMetrics().scaledDensity;
+    }
 }

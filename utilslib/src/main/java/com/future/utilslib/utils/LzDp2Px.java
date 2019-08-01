@@ -1,8 +1,5 @@
 package com.future.utilslib.utils;
 
-import android.content.Context;
-import android.util.DisplayMetrics;
-
 
 /**
  * 常用单位转换的辅助类
@@ -20,8 +17,8 @@ public class LzDp2Px {
      * @param dp
      * @return
      */
-    public static int dp2px(Context context, float dp) {
-        return (int) (getDensity(context) * dp + 0.5);
+    public static int dp2px(float dp) {
+        return (int) (LzResUtils.getDensity() * dp + 0.5);
     }
 
     /**
@@ -30,8 +27,8 @@ public class LzDp2Px {
      * @param sp
      * @return
      */
-    public static int sp2px(Context context, float sp) {
-        return (int) (getFontDensity(context) * sp + 0.5);
+    public static int sp2px(float sp) {
+        return (int) (LzResUtils.getFontDensity() * sp + 0.5);
     }
 
     /**
@@ -40,8 +37,8 @@ public class LzDp2Px {
      * @param px
      * @return
      */
-    public static int px2dp(Context context, float px) {
-        return (int) (px / getDensity(context) + 0.5);
+    public static int px2dp(float px) {
+        return (int) (px / LzResUtils.getDensity() + 0.5);
     }
 
     /**
@@ -50,24 +47,9 @@ public class LzDp2Px {
      * @param px
      * @return
      */
-    public static int px2sp(Context context, float px) {
-        return (int) (px / getFontDensity(context) + 0.5);
+    public static int px2sp(float px) {
+        return (int) (px / LzResUtils.getFontDensity() + 0.5);
     }
 
-    /**
-     * 获取 DisplayMetrics
-     *
-     * @return
-     */
-    public static DisplayMetrics getDisplayMetrics(Context context) {
-        return context.getResources().getDisplayMetrics();
-    }
 
-    public static float getDensity(Context context) {
-        return context.getResources().getDisplayMetrics().density;
-    }
-
-    public static float getFontDensity(Context context) {
-        return context.getResources().getDisplayMetrics().scaledDensity;
-    }
 }

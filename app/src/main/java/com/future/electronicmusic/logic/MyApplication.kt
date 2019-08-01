@@ -14,6 +14,5 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         LzInitUtil.init(this)
-        MusicManager.initMusicManager(this);
     }
 }

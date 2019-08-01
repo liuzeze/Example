@@ -638,7 +638,7 @@ public class LzSnackbarUtils {
                 android:textAlignment="viewStart"/>
         */
         //文字高度+paddingTop+paddingBottom : 14sp + 14dp*2
-        float SnackbarHeight = LzDp2Px.dp2px(getSnackbar().getView().getContext(), 28) + LzDp2Px.sp2px(getSnackbar().getView().getContext(), 14);
+        float SnackbarHeight = LzDp2Px.dp2px( 28) + LzDp2Px.sp2px( 14);
         return (int) SnackbarHeight;
     }
 

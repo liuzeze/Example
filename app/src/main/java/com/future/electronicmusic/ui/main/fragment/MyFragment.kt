@@ -6,11 +6,14 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import com.future.electronicmusic.R
+import com.future.electronicmusic.ui.main.MyInforActivity
 import com.future.utilslib.base.BaseFragment
 import com.future.utilslib.dialog.LzDialogUtils
 import com.future.utilslib.utils.LzInitUtil
 import com.future.utilslib.utils.LzSPUtils
 import com.future.utilslib.utils.LzToast
+import com.future.utilslib.view.floating.FloatingView
+import com.future.utilslib.view.floating.FloatingViewConfig
 import com.lz.fram.base.InjectLayout
 import com.lzx.starrysky.manager.MediaSessionConnection
 import kotlinx.android.synthetic.main.fragment_my.*
@@ -55,37 +58,10 @@ class MyFragment : BaseFragment() {
 //            player.setOnPreparedListener { it.start() }
 //            player.setDataSource("http://192.168.60.57:8080/examples/Music/2.mp3")
 //            player.prepareAsync()
-/*
-            val config = FloatingViewConfig.Builder()
-                .setPaddingLeft(paddingLeft)
-                .setPaddingTop(paddingTop)
-                .setPaddingRight(paddingRight)
-                .setPaddingBottom(paddingBottom)
-                .setGravity(FloatingViewConfig.GRAVITY.LEFT_CENTER)
-//                .setDisplayWidth(lyViewGroup.getWidth())
-//                .setDisplayHeight(lyViewGroup.getHeight())
-                .build()
-            var floatingView =
-                FloatingView(mContext, R.layout.view_floating, config)
-            floatingView.showOverlaySystem()*/
+
+            startActivity(Intent(mContext,MyInforActivity::class.java))
         }
-        tv_change_url.setOnClickListener {
-            LzSPUtils.putBoolean(
-                LzInitUtil.APPBASEYRL, !LzSPUtils.getBoolean(
-                    LzInitUtil.APPBASEYRL))
-            LzDialogUtils.alertConfirmDialog(mContext, "提示信息", "切换之后必须重启APP", "", {
 
-                val intent = mContext.getPackageManager().getLaunchIntentForPackage(mContext.packageName);
-                val restartIntent =
-                    PendingIntent.getActivity(mContext!!.applicationContext, 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK)
-                // 退出程序
-                val mgr = mContext!!.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-                mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 500, restartIntent)
-                android.os.Process.killProcess(android.os.Process.myPid())
-
-            }).setCancelable(false)
-
-        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

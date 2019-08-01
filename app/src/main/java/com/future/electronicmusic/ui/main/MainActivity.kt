@@ -88,6 +88,7 @@ class MainActivity : BaseActivity() {
         })
 
         LzFragmentUtils.add(supportFragmentManager, mFragmentList, R.id.main_pager, 0)
+
     }
 
     /**

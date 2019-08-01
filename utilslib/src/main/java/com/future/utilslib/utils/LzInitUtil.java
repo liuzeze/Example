@@ -1,18 +1,27 @@
 package com.future.utilslib.utils;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.Application;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.View;
+import com.future.httplib.http.HttpLoadDialog;
 import com.future.utilslib.BuildConfig;
+import com.future.utilslib.R;
+import com.future.utilslib.dialog.LzDialogUtils;
 import com.future.utilslib.net.LoggerInterceptor;
+import com.future.utilslib.view.floating.FloatingView;
+import com.future.utilslib.view.floating.FloatingViewConfig;
 import com.lz.httplib.RxRequestUtils;
 import com.lz.httplib.http.ConfigModule;
 import com.lz.httplib.http.GlobalConfigBuild;
-import com.noober.background.BackgroundLibrary;
+import com.lzx.starrysky.manager.MusicManager;
 import com.orhanobut.logger.*;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -23,17 +32,21 @@ import com.tencent.bugly.crashreport.CrashReport;
 public class LzInitUtil {
 
     //app环境切换
-    public static final String APPBASEYRL = "APPBASEYRL";
+    public static final String APPBASEURL = "APPBASEURL";
+    private static FloatingView floatingView;
+    private static int count = 0;
 
     private LzInitUtil() {
     }
 
     private static Context sContext;
 
-    public static void init(Application context) {
+    public static void init(final Application context) {
         sContext = context;
         //网络请求
         initRequest();
+        //音乐
+        MusicManager.initMusicManager(context);
 
         //buglu配置
         CrashReport.setIsDevelopmentDevice(context, BuildConfig.DEBUG);
@@ -50,7 +63,13 @@ public class LzInitUtil {
 
             @Override
             public void onActivityStarted(Activity activity) {
+                if (count == 0) {
+                    if (floatingView != null) {
+                        floatingView.showOverlaySystem();
+                    }
 
+                }
+                count++;
             }
 
             @Override
@@ -65,7 +84,12 @@ public class LzInitUtil {
 
             @Override
             public void onActivityStopped(Activity activity) {
-
+                count--;
+                if (count == 0) {
+                    if (floatingView != null) {
+                        floatingView.hide();
+                    }
+                }
             }
 
             @Override
@@ -112,6 +136,45 @@ public class LzInitUtil {
             }
         });
 
+
+        if (floatingView == null) {
+            FloatingViewConfig config = new FloatingViewConfig.Builder()
+                    .setGravity(FloatingViewConfig.GRAVITY.LEFT_CENTER)
+                    .setDisplayWidth(LzDp2Px.dp2px(30))
+                    .setDisplayHeight(LzDp2Px.dp2px(30))
+                    .build();
+
+            floatingView = new FloatingView(context, R.layout.view_floating, config);
+            floatingView.showOverlaySystem();
+            floatingView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LzSPUtils.putBoolean(
+                            LzInitUtil.APPBASEURL, !LzSPUtils.getBoolean(
+                                    LzInitUtil.APPBASEURL
+                            )
+                    );
+                    LzDialogUtils.alertConfirmDialog(context, "提示信息", "切换之后必须重启APP", "", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+
+                            Intent intent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+                            PendingIntent restartIntent =
+                                    PendingIntent.getActivity(context, 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK);
+                            // 退出程序
+                            AlarmManager mgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+                            mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 500, restartIntent);
+                            android.os.Process.killProcess(android.os.Process.myPid());
+
+                        }
+                    }).
+
+                            setCancelable(false);
+                }
+            });
+
+        }
     }
 
     public static void initRequest() {
@@ -120,7 +183,7 @@ public class LzInitUtil {
             public void applyOptions(GlobalConfigBuild.Builder builder) {
                 if (BuildConfig.DEBUG) {
                     builder.addInterceptor(new LoggerInterceptor());
-                    boolean appbaseyrl = LzSPUtils.getBoolean(APPBASEYRL);
+                    boolean appbaseyrl = LzSPUtils.getBoolean(APPBASEURL);
                     if (!appbaseyrl) {
                         builder.baseurl(BuildConfig.API_URL);
                     } else {

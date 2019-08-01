@@ -25,7 +25,7 @@ class MyInforActivity : BaseActivity(), MyInforContract.View {
     override fun initData() {
         runBlocking {
             val launch = GlobalScope.launch {
-                mPresenter?.getNewLists("推荐")
+               // mPresenter?.getNewLists("推荐")
 
             }
             launch.join()

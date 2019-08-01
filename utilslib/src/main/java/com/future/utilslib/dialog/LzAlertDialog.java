@@ -95,8 +95,6 @@ public class LzAlertDialog {
 //        dialog.getWindow().setWindowAnimations(R.style.dialog_animations);
 
         dialog.setContentView(view);
-
-
         return this;
     }
 
@@ -293,6 +291,8 @@ public class LzAlertDialog {
         lp.height = LzScreenUtils.getScreenHeight();
         lp.gravity = Gravity.CENTER;
         window.setAttributes(lp);
+        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+
     }
 
     /**
@@ -303,6 +303,7 @@ public class LzAlertDialog {
     public LzAlertDialog show() {
         try {
             setLayout();
+
             dialog.show();
         } catch (Exception e) {
             e.printStackTrace();
