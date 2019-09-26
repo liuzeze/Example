@@ -29,7 +29,8 @@ class RequestApi {
         return RxRequestUtils
             .create(ApiService::class.java)
             .login(userName, password)
-            .compose(Transformer.switchSchedulersObser(mLpLoadDialog))
+            .compose(Transformer.switchSchedulersObser())
+
 
 
     }

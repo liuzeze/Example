@@ -2,7 +2,6 @@ package com.future.electronicmusic
 
 import android.app.Application
 import com.future.utilslib.utils.LzInitUtil
-import com.lzx.starrysky.manager.MusicManager
 
 
 /**

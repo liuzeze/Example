@@ -111,10 +111,8 @@ public class LzAlertDialog {
     }
 
     public LzAlertDialog setTitle(String title) {
-        showTitle = true;
-        if (TextUtils.isEmpty(title)) {
-            txt_title.setText("请输入提示标题");
-        } else {
+        if (!TextUtils.isEmpty(title)) {
+            showTitle = true;
             txt_title.setText(title);
         }
         return this;

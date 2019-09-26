@@ -1,5 +1,6 @@
 package com.future.electronicmusic.ui.main
 
+import android.graphics.Color
 import android.support.v4.app.Fragment
 import android.view.KeyEvent
 import com.flyco.tablayout.listener.CustomTabEntity
@@ -15,6 +16,7 @@ import com.future.utilslib.utils.LzFragmentUtils
 import com.future.utilslib.utils.LzToast
 import com.gyf.immersionbar.ImmersionBar
 import com.lz.fram.base.InjectLayout
+import com.lz.httplib.http.OkhttpFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -44,8 +46,10 @@ class MainActivity : BaseActivity() {
         ImmersionBar
             .with(this)
             .fitsSystemWindows(false)
-            .statusBarColor(R.color.common_app_transparency_b95)
-            .autoStatusBarDarkModeEnable(true, 0.2f)
+            .transparentStatusBar()
+            .statusBarDarkFont(true)
+            .flymeOSStatusBarFontColorInt(Color.BLACK)
+//            .autoStatusBarDarkModeEnable(true, 0.2f)
             .init()
     }
 
@@ -88,7 +92,6 @@ class MainActivity : BaseActivity() {
         })
 
         LzFragmentUtils.add(supportFragmentManager, mFragmentList, R.id.main_pager, 0)
-
     }
 
     /**

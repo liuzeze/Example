@@ -7,14 +7,8 @@
         android:layout_height="match_parent">
 
     <TextView
-            android:id="@+id/tv_my_infor"
-            android:text="我的信息"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"/>
-  <TextView
-            android:id="@+id/tv_setting"
-            android:text="设置"
+            android:id="@+id/tv_login"
+            android:text="登陆"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="45dp"/>

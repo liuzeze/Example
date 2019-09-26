@@ -7,4 +7,5 @@
         android:layout_height="match_parent"
         tools:context="com.future.electronicmusic.ui.main.MyInforActivity">
 
+
 </android.support.constraint.ConstraintLayout>

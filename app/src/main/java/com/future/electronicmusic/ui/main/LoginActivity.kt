@@ -1,10 +1,9 @@
 package com.future.electronicmusic.ui.main
 
-import android.app.Activity
 import android.content.Intent
 import com.future.electronicmusic.R
 import com.future.electronicmusic.ui.main.fragment.presenter.LoginContract
-import com.future.electronicmusic.ui.main.fragment.presenter.LoginPresenter
+import com.future.electronicmusic.ui.main.presenter.LoginPresenter
 import com.future.utilslib.base.BaseActivity
 import com.future.utilslib.utils.LzToast
 import com.future.utilslib.view.statu.StatusView

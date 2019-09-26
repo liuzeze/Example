@@ -28,4 +28,5 @@ class HomePresenter : RxPresenter<HomeContract.View>(), HomeContract.Presenter {
             })
         addSubscribe("getNewLists", commonSubscriber)
     }
+
 }

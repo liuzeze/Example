@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/common_app_gray_e5e5e5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.future.electronicmusic.ui.main.SettingActivity">
+
+    <com.allen.library.SuperTextView
+            app:sBackgroundDrawableRes="@color/common_app_white_ffffff"
+            android:id="@+id/tv_change_url"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:sLeftIconHeight="40dp"
+            app:sLeftIconWidth="40dp"
+            android:padding="15dp"
+            app:sLeftBottomTextString="点击之后强制重启APP"
+            app:sLeftBottomTextColor="@color/common_app_red_ff0000"
+            app:sLeftViewGravity="left_center"
+            app:sLeftIconShowCircle="true"
+            app:sLeftIconRes="@mipmap/ic_launcher"
+            app:sLeftTextString="切换地址"
+            tools:ignore="MissingConstraints"/>
+
+    <com.allen.library.SuperTextView
+            app:sBackgroundDrawableRes="@color/common_app_white_ffffff"
+            android:id="@+id/tv_show_uetool"
+            app:layout_constraintTop_toBottomOf="@+id/tv_change_url"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:sLeftIconHeight="40dp"
+            app:sLeftIconWidth="40dp"
+            android:padding="15dp"
+            app:sRightViewType="switchBtn"
+            app:sSwitchMinWidth="50dp"
+            app:sLeftIconShowCircle="true"
+            app:sLeftIconRes="@mipmap/ic_launcher"
+            app:sLeftTextString="打开UI辅助工具"
+            tools:ignore="MissingConstraints"/>
+
+</android.support.constraint.ConstraintLayout>

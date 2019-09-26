@@ -38,11 +38,13 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api rootProject.ext.dependencies.appcompat_v7
     api rootProject.ext.dependencies.design
+    //room
+    api 'android.arch.persistence.room:runtime:1.1.1'
 
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //协程
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.27.0-eap13'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:0.27.0-eap13'
     //mvp网络请求框架
     api 'com.lz:fram:1.0.9'
@@ -55,7 +57,7 @@ dependencies {
     //权限请求
     api 'com.yanzhenjie.permission:support:2.0.1'
     //列表适配器
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
     //状态栏管理
     api 'com.gyf.immersionbar:immersionbar:3.0.0-beta05'
     //屏幕适配
@@ -82,7 +84,12 @@ dependencies {
     api 'com.github.zhangliangming:HPLyrics:v1.66'
     //相册获取图片
     //api 'com.jph.takephoto:takephoto_library:4.1.0'
-    api 'com.github.zhangliangming:Player:v1.1'
-    api 'com.github.zhangliangming:HPAudio:v2.4'
+//    api 'com.github.zhangliangming:Player:v1.1'
+//    api 'com.github.zhangliangming:HPAudio:v2.4'
+
+    debugApi 'me.ele:uetool:1.2.3'
+    releaseApi 'me.ele:uetool-no-op:1.2.3'
+
+    api 'android.arch.persistence.room:runtime:1.1.1'
 }
 

@@ -322,7 +322,7 @@ public class LzToast {
      * @param duration 显示时长
      */
     @SuppressLint("ShowToast")
-    public static void showToast(String msg, int duration) {
+    public static synchronized void showToast(String msg, int duration) {
         if (mToast == null) {
             mToast = Toast.makeText(LzInitUtil.getApp(), msg, duration);
         } else {
