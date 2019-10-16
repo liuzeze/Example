@@ -6,7 +6,7 @@ import com.future.electronicmusic.R
 import com.future.electronicmusic.ui.main.MyInforActivity
 import com.future.electronicmusic.ui.main.SettingActivity
 import com.future.utilslib.base.BaseFragment
-import com.lz.fram.base.InjectLayout
+import com.lz.fram.base.GraphConfig
 import kotlinx.android.synthetic.main.fragment_my.*
 
 
@@ -14,11 +14,13 @@ import kotlinx.android.synthetic.main.fragment_my.*
  *-----------作者----------日期----------变更内容-----
  *-          刘泽      2019-07-12       创建class
  */
-@InjectLayout(layoutId = R.layout.fragment_my, isShowFragTitle = true, titleName = "我的")
 class MyFragment : BaseFragment() {
 
+    override fun initLayout(graphLayout: GraphConfig) {
+        graphLayout.setLayoutId(R.layout.fragment_my).setTitleName("我的").setShowTitle(true)
+    }
 
-    override fun initData() {
+    override fun initViewData() {
 
     }
 

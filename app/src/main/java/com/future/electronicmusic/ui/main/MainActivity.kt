@@ -1,8 +1,8 @@
 package com.future.electronicmusic.ui.main
 
 import android.graphics.Color
-import android.support.v4.app.Fragment
 import android.view.KeyEvent
+import androidx.fragment.app.Fragment
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
 import com.future.electronicmusic.R
@@ -15,8 +15,7 @@ import com.future.utilslib.base.BaseActivity
 import com.future.utilslib.utils.LzFragmentUtils
 import com.future.utilslib.utils.LzToast
 import com.gyf.immersionbar.ImmersionBar
-import com.lz.fram.base.InjectLayout
-import com.lz.httplib.http.OkhttpFactory
+import com.lz.fram.base.GraphConfig
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -24,7 +23,6 @@ import java.util.*
  *-----------作者----------日期----------变更内容-----
  *-          刘泽      2019-07-12       创建class
  */
-@InjectLayout(layoutId = R.layout.activity_main, isShowActTitle = false)
 class MainActivity : BaseActivity() {
     val mFragmentList = arrayListOf<Fragment>()
     private val mTitles = arrayOf("首页", "消息", "订单", "更多")
@@ -41,20 +39,20 @@ class MainActivity : BaseActivity() {
         R.mipmap.ic_launcher
     )
     private val mTabEntities = ArrayList<CustomTabEntity>()
-
-    override fun initBar() {
-        ImmersionBar
-            .with(this)
-            .fitsSystemWindows(false)
-            .transparentStatusBar()
-            .statusBarDarkFont(true)
-            .flymeOSStatusBarFontColorInt(Color.BLACK)
-//            .autoStatusBarDarkModeEnable(true, 0.2f)
-            .init()
+    override fun initLayout(graphLayout: GraphConfig) {
+        graphLayout.setLayoutId(R.layout.activity_main).setShowTitle(false)
     }
 
-    override fun initData() {
-        swipePanel.setLeftEnabled(false)
+
+    override fun initViewData() {
+        mSwipePanel.setLeftEnabled(false)
+        mImmersionBar
+            .transparentStatusBar()
+            .statusBarDarkFont(false)
+            .flymeOSStatusBarFontColorInt(Color.BLACK)
+            .autoStatusBarDarkModeEnable(true, 0.2f)
+            .init()
+
         mTabEntities.clear()
         for (i in mTitles.indices) {
             mTabEntities.add(MainTabBean(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))

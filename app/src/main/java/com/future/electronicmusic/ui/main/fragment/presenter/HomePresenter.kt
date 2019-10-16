@@ -1,8 +1,8 @@
 package com.future.electronicmusic.ui.main.fragment.presenter
 
 import com.future.electronicmusic.api.RequestApi
+import com.future.utilslib.http.CommonObserver
 import com.lz.fram.base.RxPresenter
-import com.lz.fram.observer.CommonSubscriber
 
 /**
  * -----------作者----------日期----------变更内容-----
@@ -19,14 +19,12 @@ class HomePresenter : RxPresenter<HomeContract.View>(), HomeContract.Presenter {
     override fun getNewLists(type: String) {
         val commonSubscriber = mRequestApi
             .getNewLists(type, "")
-            .`as`(bindLifecycle())
-            .subscribeWith(object : CommonSubscriber<String>() {
+            .subscribeWith(object : CommonObserver<String>(mBaseView) {
 
                 override fun onNext(s: String) {
                     mBaseView.getNewsListSuccess(s)
                 }
             })
-        addSubscribe("getNewLists", commonSubscriber)
     }
 
 }

@@ -1,6 +1,5 @@
 package com.future.electronicmusic.ui.main.fragment.presenter
 
-import com.lz.fram.base.BasePresenter
 import com.lz.fram.base.BaseView
 
 /**
@@ -13,7 +12,7 @@ class HomeContract {
         fun getNewsListSuccess(s: String)
     }
 
-    internal interface Presenter : BasePresenter {
+    internal interface Presenter  {
         fun getNewLists(type: String)
     }
 }

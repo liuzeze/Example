@@ -7,26 +7,25 @@ import android.view.View
 import com.future.electronicmusic.R
 import com.future.utilslib.base.BaseActivity
 import com.gyf.immersionbar.BarHide
-import com.gyf.immersionbar.ImmersionBar
-import com.lz.fram.base.InjectLayout
+import com.lz.fram.base.GraphConfig
 import kotlinx.android.synthetic.main.activity_spalsh.*
 
 /**
  *-----------作者----------日期----------变更内容-----
  *-          刘泽      2019-07-12       创建class
  */
-@InjectLayout(layoutId = R.layout.activity_spalsh, isShowActTitle = false)
 class SpalshActivity : BaseActivity() {
     var timerSikp: CountDownTimer? = null
+    override fun initLayout(graphLayout: GraphConfig?) {
+        graphLayout!!.setLayoutId(R.layout.activity_spalsh).setShowTitle(false)
 
-    override fun initBar() {
-        ImmersionBar
-            .with(this)
-            .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
-            .init()
     }
 
-    override fun initData() {
+
+    override fun initViewData() {
+        mImmersionBar
+            .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
+            .init()
         startTime(5)
     }
 

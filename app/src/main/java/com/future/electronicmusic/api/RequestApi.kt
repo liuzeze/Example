@@ -1,10 +1,8 @@
 package com.future.electronicmusic.api
 
 
-import com.future.httplib.http.HttpLoadDialog
-import com.future.utilslib.utils.LzInitUtil
-import com.lz.httplib.RxRequestUtils
-import com.lz.httplib.transformer.Transformer
+import com.future.utilslib.http.Transformer
+import com.lz.httplib.RxHttp
 import io.reactivex.Observable
 
 /**
@@ -12,24 +10,19 @@ import io.reactivex.Observable
  */
 class RequestApi {
 
-    private val mLpLoadDialog: HttpLoadDialog
-
-    init {
-        mLpLoadDialog = HttpLoadDialog(LzInitUtil.getApp())
-    }
 
     fun getNewLists(category: String, time: String): Observable<String> {
-        return RxRequestUtils
+        return RxHttp
             .create(ApiService::class.java)
             .getNewsArticle2(category, time)
-            .compose(Transformer.switchSchedulersObser(mLpLoadDialog))
+            .compose(Transformer.switchSchedulersStr())
     }
 
     fun login(userName: String, password: String): Observable<String> {
-        return RxRequestUtils
+        return RxHttp
             .create(ApiService::class.java)
             .login(userName, password)
-            .compose(Transformer.switchSchedulersObser())
+            .compose(Transformer.switchSchedulersStr())
 
 
 

@@ -28,8 +28,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.v4.content.ContextCompat;
 import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +38,10 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ListView;
+
+import androidx.annotation.ColorInt;
+import androidx.core.content.ContextCompat;
+
 import com.future.utilslib.R;
 import io.reactivex.annotations.Nullable;
 

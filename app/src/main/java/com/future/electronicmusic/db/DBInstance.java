@@ -1,12 +1,12 @@
 package com.future.electronicmusic.db;
 
-import android.arch.persistence.room.Room;
+
+import androidx.room.Room;
 
 import com.future.electronicmusic.db.db.AppDatabase;
 import com.future.electronicmusic.db.db.VersionDataBase;
 import com.future.utilslib.utils.LzInitUtil;
 
-import static com.future.electronicmusic.db.db.VersionDataBase.MIGRATION_1_2;
 
 /**
  * @author : liuze

@@ -7,9 +7,10 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
-import android.support.v7.widget.AppCompatSeekBar;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
+
+import androidx.appcompat.widget.AppCompatSeekBar;
 
 /**
  * -----------作者----------日期----------变更内容-----

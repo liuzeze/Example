@@ -2,9 +2,8 @@ package com.future.electronicmusic.ui.main.presenter
 
 import com.future.electronicmusic.api.RequestApi
 import com.future.electronicmusic.ui.main.fragment.presenter.LoginContract
+import com.future.utilslib.http.CommonObserver
 import com.lz.fram.base.RxPresenter
-import com.lz.fram.observer.CommonSubscriber
-import com.lz.httplib.transformer.Transformer
 
 /**
  * -----------作者----------日期----------变更内容-----
@@ -21,13 +20,11 @@ class LoginPresenter : RxPresenter<LoginContract.View>(), LoginContract.Presente
     override fun login(userName: String, password: String) {
         val commonSubscriber = mRequestApi
             .login(userName, password)
-            .`as`(bindLifecycle())
-            .subscribeWith(object : CommonSubscriber<String>() {
+            .subscribeWith(object : CommonObserver<String>(mBaseView) {
                 override fun onNext(s: String) {
                     mBaseView.loginSuccess()
                 }
             })
-        addSubscribe("login", commonSubscriber)
     }
 
 }

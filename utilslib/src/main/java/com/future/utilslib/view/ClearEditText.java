@@ -2,14 +2,16 @@ package com.future.utilslib.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 import com.future.utilslib.R;
 import com.noober.background.BackgroundFactory;
 
@@ -55,6 +57,7 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
         super.setOnFocusChangeListener(this);
         super.setOnTouchListener(this);
         addTextChangedListener(this);
+        setCompoundDrawablePadding(20);
 
     }
 
@@ -121,7 +124,7 @@ public class ClearEditText extends AppCompatEditText implements View.OnFocusChan
     }
 
 
-    public String getTextStrign() {
+    public String getTextStrig() {
         try {
             return getText().toString().trim();
         } catch (Exception e) {

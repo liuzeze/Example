@@ -6,7 +6,7 @@ import com.future.electronicmusic.R
 import com.future.electronicmusic.ui.main.LoginActivity
 import com.future.utilslib.base.BaseFragment
 import com.future.utilslib.utils.LzToast
-import com.lz.fram.base.InjectLayout
+import com.lz.fram.base.GraphConfig
 import kotlinx.android.synthetic.main.fragment_message.*
 
 
@@ -14,13 +14,12 @@ import kotlinx.android.synthetic.main.fragment_message.*
  * @author Administrator
  */
 
-@InjectLayout(
-    layoutId = R.layout.fragment_message,
-    isShowFragTitle = true,
-    titleName = "消息"
-)
+
 class MessageFragment : BaseFragment() {
-    override fun initData() {
+    override fun initLayout(graphLayout: GraphConfig) {
+        graphLayout.setLayoutId(R.layout.fragment_message).setTitleName("消息").setShowTitle(true)
+    }
+    override fun initViewData() {
 
 
     }

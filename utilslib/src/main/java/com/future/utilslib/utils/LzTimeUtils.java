@@ -1,6 +1,7 @@
 package com.future.utilslib.utils;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
+
 import io.reactivex.annotations.NonNull;
 
 import java.lang.annotation.Retention;

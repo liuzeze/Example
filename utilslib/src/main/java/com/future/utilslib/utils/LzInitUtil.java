@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.future.utilslib.BuildConfig;
 import com.future.utilslib.net.LoggerInterceptor;
-import com.lz.httplib.RxRequestUtils;
+import com.lz.httplib.RxHttp;
 import com.lz.httplib.http.ConfigModule;
 import com.lz.httplib.http.GlobalConfigBuild;
 import com.orhanobut.logger.*;
@@ -121,7 +123,7 @@ public class LzInitUtil {
     }
 
     public static void initRequest() {
-        RxRequestUtils.initConfig(new ConfigModule() {
+        RxHttp.initConfig(new ConfigModule() {
             @Override
             public void applyOptions(GlobalConfigBuild.Builder builder) {
 

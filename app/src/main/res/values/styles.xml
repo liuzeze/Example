@@ -10,8 +10,10 @@
         <item name="android:windowAnimationStyle">@style/translate_animation</item>
     </style>
     <!-- Base application theme. -->
-    <style name="SplashStyle" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+    <style name="SplashStyle" >
         <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowActionBar">false</item>
         <item name="android:windowBackground">@color/common_app_white_ffffff</item>
     </style>
     <!--转场动画-->

@@ -11,9 +11,7 @@ import com.future.utilslib.base.BaseActivity
 import com.future.utilslib.dialog.LzDialogUtils
 import com.future.utilslib.utils.LzInitUtil
 import com.future.utilslib.utils.LzSPUtils
-import com.lz.fram.base.InjectLayout
-import com.noober.background.view.Const
-import com.vector.update_app.UpdateDialogFragment.isShow
+import com.lz.fram.base.GraphConfig
 import kotlinx.android.synthetic.main.activity_setting.*
 import me.ele.uetool.UETool
 
@@ -22,11 +20,14 @@ import me.ele.uetool.UETool
  * @author Administrator
  */
 
-@InjectLayout(layoutId = R.layout.activity_setting, titleName = "设置")
 class SettingActivity : BaseActivity() {
+    override fun initLayout(graphLayout: GraphConfig?) {
+        graphLayout!!.setLayoutId(R.layout.activity_setting).setTitleName("设置")
+
+    }
 
 
-    override fun initData() {
+    override fun initViewData() {
 
         tv_show_uetool.switchIsChecked = LzSPUtils.getBoolean(Constants.UETOOL_Check)
         if (!tv_show_uetool.switchIsChecked) {
@@ -48,7 +49,8 @@ class SettingActivity : BaseActivity() {
             )
             LzDialogUtils.alertConfirmDialog(context, "提示信息", "切换之后必须重启APP", "") {
                 val intent = context.packageManager.getLaunchIntentForPackage(context.packageName)
-                val restartIntent = PendingIntent.getActivity(context, 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK)
+                val restartIntent =
+                    PendingIntent.getActivity(context, 0, intent, Intent.FLAG_ACTIVITY_NEW_TASK)
                 // 退出程序
                 val mgr = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
                 mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 500, restartIntent)
