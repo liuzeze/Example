@@ -1,7 +1,6 @@
 package com.future.utilslib.base;
 
 
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -30,12 +29,10 @@ public abstract class BaseActivity extends FramActivity {
         super.initConfig();
         //状态栏标题栏
         mImmersionBar = ImmersionBar.with(this)
-                .statusBarColor("#ffffff")
+                .statusBarColor(R.color.common_app_white_ffffff)
                 .statusBarDarkFont(true, 0.5f)
                 .flymeOSStatusBarFontColorInt(Color.BLACK)
-                .navigationBarColor("#ffffff")
-                .autoNavigationBarDarkModeEnable(true, 0.2f)
-                .autoStatusBarDarkModeEnable(true, 0.2f);
+                .navigationBarColor(R.color.common_app_black_000000);
         mImmersionBar
                 .init();
         //控件背景设置

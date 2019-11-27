@@ -14,14 +14,16 @@ import kotlinx.android.synthetic.main.fragment_home.*
  */
 class HomeFragment : BaseFragment(), HomeContract.View {
 
+    @AttachPresenter
+    var mPresenter: HomePresenter? = null
+
     override fun initLayout(graphLayout: GraphConfig) {
         graphLayout.setLayoutId(R.layout.fragment_home)
     }
+
     override fun initViewData() {
         mPresenter?.getNewLists("推荐")
     }
-    @AttachPresenter
-    var mPresenter: HomePresenter? = null
 
 
     override fun getNewsListSuccess(s: String) {

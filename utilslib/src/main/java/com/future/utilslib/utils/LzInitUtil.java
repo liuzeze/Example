@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import com.future.utilslib.BuildConfig;
 import com.future.utilslib.net.LoggerInterceptor;
 import com.lz.httplib.RxHttp;
+import com.lz.httplib.bean.ParseInfo;
 import com.lz.httplib.http.ConfigModule;
 import com.lz.httplib.http.GlobalConfigBuild;
 import com.orhanobut.logger.*;
@@ -127,6 +128,7 @@ public class LzInitUtil {
             @Override
             public void applyOptions(GlobalConfigBuild.Builder builder) {
 
+//                builder.setPaeseInfor(new ParseInfo("errorCode", "data", "errorMsg", "0");
                 if (BuildConfig.DEBUG) {
                     builder.addInterceptor(new LoggerInterceptor());
                     boolean appbaseyrl = LzSPUtils.getBoolean(APPBASEURL);

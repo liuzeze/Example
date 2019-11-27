@@ -41,18 +41,12 @@ class MainActivity : BaseActivity() {
     private val mTabEntities = ArrayList<CustomTabEntity>()
     override fun initLayout(graphLayout: GraphConfig) {
         graphLayout.setLayoutId(R.layout.activity_main).setShowTitle(false)
+
     }
 
 
     override fun initViewData() {
         mSwipePanel.setLeftEnabled(false)
-        mImmersionBar
-            .transparentStatusBar()
-            .statusBarDarkFont(false)
-            .flymeOSStatusBarFontColorInt(Color.BLACK)
-            .autoStatusBarDarkModeEnable(true, 0.2f)
-            .init()
-
         mTabEntities.clear()
         for (i in mTitles.indices) {
             mTabEntities.add(MainTabBean(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]))
@@ -69,19 +63,16 @@ class MainActivity : BaseActivity() {
         main_tab.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
                 LzFragmentUtils.showHide(position, mFragmentList)
-                val immersionBar = ImmersionBar
-                    .with(mActivity)
-                    .autoStatusBarDarkModeEnable(true, 0.2f)
                 if (position == 0) {
-                    immersionBar
-                        .fitsSystemWindows(false)
+                    mImmersionBar
+                        .fitsSystemWindows(true)
                         .statusBarColor(R.color.common_app_transparency_b95)
                 } else {
-                    immersionBar
-                        .fitsSystemWindows(true)
+                    mImmersionBar
+                        .fitsSystemWindows(false)
                         .statusBarColor(R.color.colorPrimary)
                 }
-                immersionBar.init()
+                mImmersionBar.init()
             }
 
             override fun onTabReselect(position: Int) {
